@@ -17,6 +17,6 @@ def save_page(url, filename):
 day_names = ['vasarnap', 'szombat', 'pentek', 'csutortok', 'szerda', 'kedd', 'hetfo']
 
 if datetime.today().weekday() == 6:
-  for day in range(0, 6):
+  for day in range(0, 7):
     filename = (datetime.today() - timedelta(days=day)).strftime('%Y-%m-%d') + '.html'
     save_page('http://www.holmenuzzek.hu/' + day_names[day] + '.htm', filename)
