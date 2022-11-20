@@ -1,0 +1,536 @@
+   1  - Aszaltszilvával göngyölt karaj burgonyapürével
+   1  - Bakonyi gombás pulykatokány tésztával
+   1  - Bolognai makaróni
+   1  - Burgonyafőzelék pörkölttel
+   1  - Ceruzababos karajszelet baconnal
+   1  - Grillezett kelbimbós pulykamell
+   1  - Görög fűszeres csirkecomb, sültburgonyával salátával
+   1  - Joghurtos csirkemell tzatzikis öntettel és sültkrumplival
+   1  - Lasagne
+   1  - Malacsült citromos mártással sültburgonyával
+   1  - Négysajtos pulykamell orsó tésztával
+   1  - Paradicsomos húsgombóc
+   1  - Paradicsomos káposzta grillezett karajjal
+   1  - Prézlis tészta
+   1  - Rakott kel
+   1  - Rántott csirkemell majonézes babsalátával
+   1  - Sajttal - sonkával göngyölt borda, vegyes körettel
+   1  - Sertéspörkölt kelkáposztafőzelékkel
+   1  - Szezámmagos csirkemell hagymás törtburgonyával
+   1  - Székelykáposzta
+   1  - Sült oldalas sültburgonyával lilakáposztával
+   1  - Tarhonyás hús
+   1  - Túrógombóc édestejföllel
+   1  - Óvári sertésszelet, vegyes körettel
+   1  -Dubarry sertéskaraj rizzsel
+   1  -Káposztás csusza
+   1  -Meggyszósz, rántott pulykamellel
+   1  -Mákos vagy dejós tészta
+   1  -Mézes - mustáros csirkecomb
+   1  -Párizsias csirkemell majonézes tésztasalátával
+   1  -Rakott tészta
+   1  A menü ára 1300ft csomagolás +80ft Kiszállítás Ingyenes Tel: +36702886689 Hamis gulyás
+   1  A menü ára 1300ft csomagolás +80ft Kiszállítás Ingyenes Tel: +36702886689 Toscanai zöldségleves
+   1  A: Bakonyi szelet, galuskával
+   1  A: Birkapörkölt, sósburgonya
+   1  A: Bolognai spagetti
+   1  A: Bolognai spagetti 
+   1  A: Borsos aprópecsenye, tészta 
+   1  A: Borsos tokány tészta
+   1  A: Borsós tokány
+   1  A: Burgonyafőzelék, sült oldalas
+   1  A: Burgonyás tészta
+   1  A: Burgundi marharagu törtburgonyával
+   1  A: Chilis bab, pita 
+   1  A: Chilis csirkeszárnyak, steak burgonya
+   1  A: Csikós tokány galuskával, saláta
+   1  A: Csirkemáj rizottó
+   1  A: Csirkemájjal töltött szelet, petrezselymes burgonya
+   1  A: Dubary szelet, törtburgonya
+   1  A: Finomfőzelék, sült csirkecomb
+   1  A: Firenzei tekercs, rizibizi
+   1  A: Gyros, sültburgonya
+   1  A: Gyros, sültburgonya, friss saláta
+   1  A: Gyümölcsfőzelék, párizsi szelet
+   1  A: Gyümölcsös rizs 
+   1  A: Holstein szelet, zöldséges bulgur
+   1  A: Házi disznótoros, törtburgonya, párolt káposzta
+   1  A: Húsgombóc paradicsommártással
+   1  A: Kemencében sült csülök, tepsis burgonya
+   1  A: Kijevi sertés, sütőtökpüré
+   1  A: Kolozsvári rakott káposzta
+   1  A: Krumplis tészta
+   1  A: Körömpörkölt, főttburgonya
+   1  A: Körömpörkölt, sós burgonya, saláta
+   1  A: Lecsós sertéssült tarhonyával
+   1  A: Malacsült barna sörmártással, párolt káposztával hagymás tört burgonyával
+   1  A: Marhapörkölt tarhonyával
+   1  A: Marhapörkölt tarhonyával, saláta
+   1  A: Meggyszósz, sült csirkecombbal
+   1  A: Mexikói sertés tokány galuskával, saláta
+   1  A: Mustáros tarja káposzta salátával, hasábburgonyával
+   1  A: Mákos nudli
+   1  A: Mézes - mustáros csirkemell, bulgurral
+   1  A: Pacal főtt burgonyával
+   1  A: Paradicsomos káposzta, sült hús
+   1  A: Pirított csirkemáj, tepsis burgonya, savanyúság 
+   1  A: Párizsi csirkemell burgonyapürével, erdei gyümölcsraguval
+   1  A: Párizsi sertés szelet, vegyes köret, saláta
+   1  A: Rablóhús tepsiben
+   1  A: Rakott burgonya
+   1  A: Rizses hús, savanyúság 
+   1  A: Rizsfelfújt
+   1  A: Rizskoch lekvárral
+   1  A: Rántott karaj tavaszi körettel, rizzsel
+   1  A: Rántott sajt, rántott karfiol bulgurral
+   1  A: Rántott sertésszelet, vegyes köret, saláta
+   1  A: Rántott szelet pankó morzsában, olivás törtburgonyával
+   1  A: Rántott szelet petrezselymes burgonyával
+   1  A: Rántott szelet, rizibizi
+   1  A: Sajtbundás rántott szelet, burgonyapüré
+   1  A: Sajttal töltött sertés szelet, rizibizi
+   1  A: Sertéskaraj "Dubarry" módra rizzsel
+   1  A: Sertéspörkölt tésztával, saláta
+   1  A: Sertéspörkölt, sós burgonya, saláta
+   1  A: Sertésszelet kakukkfüves zöldségekkel csőben sütve, rizs 
+   1  A: Sobri szelet, tarhonya
+   1  A: Stroganoff sertésragu galuskával
+   1  A: Stíriai metélt 
+   1  A: Szalagos fánk lekvárral
+   1  A: Székelykáposzta, palacsinta
+   1  A: Sárgaborsó főzelék, sertéspörkölt
+   1  A: Sült hekk francia salátával
+   1  A: Sült hekk, rizs
+   1  A: Sült oldalas, hagymás burgonya
+   1  A: Tarhonyás hús
+   1  A: Tarja "Otthon" módra rizzsel
+   1  A: Temesvári sertésszelet, törtburgonya
+   1  A: Többsajtos csirkemell bulgurral
+   1  A: Tökfőzelék pörkölttel
+   1  A: Töltött csirkecomb, petrezselymes burgonya
+   1  A: Töltött paprika
+   1  A: Töltött paprika paradicsommártással, gyümölcs
+   1  A: Túrós csusza
+   1  A: Velővel töltött sertésborda hasábburgonya
+   1  A: Zsebes pulyka, barack, krokett
+   1  A: Zsályás besamelben sült sertésszelet, fűszeres burgonya 
+   1  A: Zöldbabfőzelék vagdalttal, gyümölcs
+   1  A: Zöldbabfőzelék, stefániával
+   1  A: Zöldborsófőzelék, sült debreceni
+   1  Alföldi tésztaleves
+   1  B: Almamártás, sült csirkecomb
+   1  B: Baconos - sajtos csirkemell rántva, hercegnő burgonya
+   1  B: Bakonyi sertéskaraj galuskával
+   1  B: Bakonyi sertésszelet galuskával
+   1  B: Barackos currys csirkemell bulgurral
+   1  B: Borsófőzelék vagdalttal
+   1  B: Brassói aprópecsenye, csemege uborka
+   1  B: Brokkolis - sajtos pulykamell csőben sütve, krokett
+   1  B: Bácskai rizseshús
+   1  B: Bácskai rizseshús, savanyúság 
+   1  B: Búbos hús, zöldséges bulgur
+   1  B: Chilis bab
+   1  B: Cigánypecsenye steakburgonyával, uborkasalátával
+   1  B: Csirkecomb filé rántva, vajas burgonya, savanyúság
+   1  B: Csirkepörkölt tésztával
+   1  B: Csongrádi sertés tekercs, párolt rizs, saláta
+   1  B: Csongrádi tekercs, törtburgonya
+   1  B: Csülökpörkölt tésztával
+   1  B: Csőben sült barackos - sajtos jércemell, rizzsel
+   1  B: Csőben sült brokkolis csirkemell, rizs
+   1  B: Debreceni szelet, kagylótészta
+   1  B: Diós tészta
+   1  B: Erdélyi tokány tésztával
+   1  B: Erdőkerülő szelet, steak burgonya
+   1  B: Fokhagymás pulykasült, tört burgonya, saláta
+   1  B: Fokhagymás tarja pékné módra steak burgonyával
+   1  B: Fokhagymás tokány sárgaborsó főzelékkel
+   1  B: Füstölt sajttal töltött karaj rántva, vegyes köret
+   1  B: Grill csirke, friss saláta, rizs
+   1  B: Görög sertés szelet, burgonyapüré
+   1  B: Holstein szelet, sültburgonya
+   1  B: Hortobágyi palacsinta
+   1  B: Kakaós és lekváros palacsinta 3db
+   1  B: Kalocsai harcsafilé, rizs
+   1  B: Kapros csirkeragu, sajtos masnival
+   1  B: Krumplifőzelék fasírozottal
+   1  B: Káposztás tészta
+   1  B: Körömpörkölt, sósburgonya
+   1  B: Lecsós csirkemáj, rizzsel vagy Túrós derelye édes tejföllel
+   1  B: Lecsós kemencében sült csirkecomb tésztával
+   1  B: Malacsült Pékné módra tepsis burgonyával
+   1  B: Mandulás sertés szelet, rizzsel
+   1  B: Marhapörkölt galuskával
+   1  B: Meggymártás rántott jércemell
+   1  B: Milánói makaróni
+   1  B: Milánói sertésborda
+   1  B: Modenai penne
+   1  B: Máglyarakás
+   1  B: Paprikás burgonya kolbásszal
+   1  B: Pincepörkölt, sósburgonya
+   1  B: Párizsi csirkemell töltött gomba, párolt rizs, párolt zöldség
+   1  B: Párizsi sertés csíkok, hagymás burgonya, saláta
+   1  B: Rakott húsos tészta sajtmártással és brokkolival
+   1  B: Rakott karfiol
+   1  B: Rakott kelkáposzta
+   1  B: Rakott palacsinta
+   1  B: Rakott zöldbab
+   1  B: Roston csirkemell, sajtmártás, rizs
+   1  B: Roston csirkemell, tojásos rizs
+   1  B: Rác csirkecomb, karikás burgonya
+   1  B: Rántott camambert, áfonya, barack, krokett
+   1  B: Rántott csirkecomb - rántott gomba, zöldséges rizs, saláta
+   1  B: Rántott csirkecomb, petrezselymes burgonya
+   1  B: Rántott csirkemell, párolt rizs, saláta
+   1  B: Rántott csirkeszárny, francia saláta
+   1  B: Rántott karfiol és brokkoli, rizibizi, tartár
+   1  B: Rántott sajt – rántott karfiol, párolt rizs, majonézes brokkoli
+   1  B: Rántott sajt, rántott csirkemell, párolt rizs, francia saláta
+   1  B: Rántott sertésszelet, fűszeres burgonya, savanyúság
+   1  B: Sajttal-gombával töltött sertésjava, rizibizi, saláta
+   1  B: Sertés paprikás orsó tésztával
+   1  B: Sertéssült vadas mártással tésztával
+   1  B: Sokmagvas rántott szelet, törtburgonya
+   1  B: Szezámmagos rántott csirkemell, párolt rizs, saláta
+   1  B: Szezámmagos rántott jércemell francia saláta
+   1  B: Szárnyas májjal töltött sertés java rántva, rizibizi, saláta
+   1  B: Sült oldalas, hagymás tört burgonya, párolt káposzta 
+   1  B: Tarhonyás hús
+   1  B: Tejszínes - póréhagymás csirkecomb, rizs
+   1  B: Tökfőzelék, fasírt
+   1  B: Tökmagos rántott csirkemell
+   1  B: Töltött csirkecomb, rizibizi
+   1  B: Töltött káposzta
+   1  B: Vadas zsemlegombóccal
+   1  B: Vadgombás csirkeragu rizzsel
+   1  B: Zöldbab főzelék pörkölttel
+   1  B: Zöldséges húsos rakott tészta
+   1  B: Édes - savanyú csirke, currys rizs
+   1  B: Óvári sertésborda krokettel
+   1  BBQ csirkeszárnyak majonézes burgonyával 1580ft
+   1  Bableves - Bácskai rizses hús vagy Pankó morzsás rántott szelet, kukoricás rizs
+   1  Bakonyi betyárleves
+   1  Bakonyi gombaleves - Csontleves
+   1  Brassói aprópecsenye
+   1  Brokkoli krémleves
+   1  Brokkoli krémleves - Csontleves
+   1  Burgonyafőzelék fasírt
+   1  C: Bakonyi sertésszelet tésztával
+   1  C: Brassói aprópecsenye, saláta
+   1  C: Bánfi sertésmáj, petrezselymes burgonya, saláta
+   1  C: Búbos sertés java petrezselymes burgonya, saláta
+   1  C: Grízes tészta öntettel
+   1  C: Gyümölcsleves aszalt szilvás - baconos sertés tekercs, jázmin rizs, francia saláta
+   1  C: Gyümölcsleves, bécsi szelet, majonézes burgonya
+   1  C: Mustáros sertés flekken, hagymás burgonya, saláta
+   1  C: Rakott karfiol
+   1  C: Rakott kel
+   1  C: Sertés szelet Pékné módra, hagymás burgonya, saláta
+   1  C: Tejszínes gombás csirkemell, párolt rizs
+   1  C: Túrós palacsinta, vanília öntettel
+   1  C: Vadas sertés java, zsemlegombóc, csőtészta
+   1  Chili burger, sült krumplival
+   1  Cigánypecsenye hasábburgonyával és almapaprikával 1580ft
+   1  Citromos becsinált leves - Csontleves
+   1  CsK burger, sült krumplival 
+   1  Csirkebecsinált leves
+   1  Csirkehúsos rizottó
+   1  Csirkepörkölt tortillába tekerve lime - os tejföllel 1580ft
+   1  Csülök pékné módra tepsis burgonya1580ft
+   1  Desszert: Nagyi almás lepénye
+   1  Dubarry sertés balzsamecetes friss salátával
+   1  Eper krémleves
+   1  Fetasajtos csirkemell jázmin rizs 1580ft
+   1  Fokhagyma krémleves zsemlekockával
+   1  Forró meggyleves 
+   1  Francia hagymaleves
+   1  Frankfurti leves
+   1  Frankfurti leves - Sonkával töltött sajt rizzsel vagy Bolognai spagetti
+   1  Gombaleves - Csontleves
+   1  Gulyásleves
+   1  Gyros 
+   1  Gyros fetával és öntettel 1580ft
+   1  Gyümölcsleves - Csontleves
+   1  Gölődin leves 
+   1  Hagymakrémleves, ropogós bacon 
+   1  Hentestokány zöldfűszeres rizzsel
+   1  Hideg almaleves
+   1  Házi túrógombóc cukros tejföllel 1580ft
+   1  Húsleves gazdagon
+   1  Juhtúróval göngyölt borda, kukorica salátával
+   1  Jókai bableves
+   1  Jókai bableves - Csontleves
+   1  KOCSONYA 1.100FT
+   1  Karfiolleves
+   1  Kelvirágleves
+   1  Konyhakerti húsleves
+   1  Krémes karfiolleves
+   1  Körteleves 
+   1  Lebbencsleves 
+   1  Legényfogó leves
+   1  Legényfogó leves 
+   1  Lencsekrém leves
+   1  Magyaros bakonyi galuska leves
+   1  Magyaros burgonya
+   1  Magyaros zöldborsóleves csipetkével
+   1  Menü:A-B 1600ft C:1750ft Kiszállítás: 50ft Csomagolás 150ft/edény +3670-709-3831 NyT: H-Cs 09-15h P-Sz 09-22 Vas- Zárva Bolognai spagetti (eredeti olasz recept alapján)
+   1  Menü:A-B 1600ft C:1750ft Kiszállítás: 50ft Csomagolás 150ft/edény +3670-709-3831 NyT: H-Cs 09-15h P-Sz 09-22 Vas- Zárva Citromos spagetti, garnélával és lazaccal (eredeti olasz recept alapján)
+   1  Menü:A-B 1600ft C:1750ft Kiszállítás: 50ft Csomagolás 150ft/edény +3670-709-3831 NyT: H-Cs 09-15h P-Sz 09-22 Vas- Zárva Fish and Chips 
+   1  Menü:A-B 1600ft C:1750ft Kiszállítás: 50ft Csomagolás 150ft/edény +3670-709-3831 NyT: H-Cs 09-15h P-Sz 09-22 Vas- Zárva Gyrosos tortilla, sült krumplival
+   1  Menü:A-B 1600ft C:1750ft Kiszállítás: 50ft Csomagolás 150ft/edény +3670-709-3831 NyT: H-Cs 09-15h P-Sz 09-22 Vas- Zárva Pulled Pork tál 
+   1  Menü:A-B 1600ft C:1750ft Kiszállítás: 50ft Csomagolás 150ft/edény +3670-709-3831 NyT: H-Cs 09-15h P-Sz 09-22 Vas- Zárva Rántott csirkemell, sült krumplival, coleslaw-val (amerikai káposzta saláta)
+   1  Mustáros flekken steak burgonya almapaprika 1580ft
+   1  Mákos guba vanília sodóval 1580ft
+   1  Narancsos kacsás pirított tészta 1580ft
+   1  Pacalpörkölt sósburgonya 1580ft
+   1  Palóc gulyás
+   1  Palóc gulyásleves - Csontleves
+   1  Paprikás burgonya savanyú uborkával 1580ft
+   1  Paradicsomleves - Csontleves
+   1  Parmezános tejszínes gombás tészta 1580ft
+   1  Pecsenyeleves
+   1  Ponty halászlé - Jókai bableves
+   1  Párizsi csirkemell rizibizi 1580ft
+   1  Párizsi karaj petrezselymes burgonya 1580ft
+   1  Párizsi sertésszelet, burgonyapüré, kompót
+   1  Rizsfelfújt - Szárnyas májrizottó - Mákos nudli
+   1  Sajtkrémleves 
+   1  Savanyú burgonyaleves 
+   1  Savanyú sertés raguleves 
+   1  Sertés raguleves
+   1  Sárgaborsó főzelék, borsos tokány
+   1  Sárgaborsó krémleves
+   1  Tavaszi zöldségleves
+   1  Tavaszi zöldségleves - Csontleves
+   1  Tejszínes parmezános csirkés tészta 1580ft
+   1  Tejszínes zöldborsós pulykatokány tésztával
+   1  Tárkonyos lencseleves
+   1  Tárkonyos raguleves
+   1  Tárkonyos sertés raguleves
+   1  Töltött sertéskaraj vele sült burgonyával 1580ft
+   1  Túrós csusza pörccel
+   1  Zellerkrémleves - Csontleves
+   1  Zöldbab leves baconnel 
+   1  Zöldbableves
+   1  Zöldborsó krémleves kolbász morzsával 
+   1  Zöldfűszeres sertésszűz ceruzababbal és hollandi mártással 1580ft
+   1  Zöldséges májgombóc
+   1  Zöldséges sertésragu galuskával 1580ft
+   1  Zöldségleves reszelt tésztával
+   1  Édes savanyú csirke sült tésztán 1580ft
+   1  Étlapunkat ITT találja! TEL: 0670/671-59-30 MENÜ RENDELÉS 12:00-ig, KISZÁLLÍTÁS 11:00-TÓL Kínálatunkat ITT találja ! TEL: 06-30-126-9782 Kolozsvári zöldbableves- Csontleves
+   1  Étlapunkat ITT találja! TEL: 0670/671-59-30 MENÜ RENDELÉS 12:00-ig, KISZÁLLÍTÁS 11:00-TÓL Kínálatunkat ITT találja ! TEL: 06-30-126-9782 Legényfogó leves - Húsos csontleves
+   1  Ürü gulyásleves - Tyúkhúsleves tésztával
+   1 A: Gyümölcsfőzelék, párizsi csirkemell
+   1 A: Kelkáposzta főzelék, fasírozott
+   1 Almaleves
+   1 B: Erdélyi rakott káposzta
+   1 B: Tökmagos halfilé, francia saláta, rizs
+   1 Babgulyás - Pecsenyeleves
+   1 Babgulyás - Tárkonyos raguleves
+   1 Babgulyás - Túrós gombóc, káposztás tészta
+   1 Becsináltleves
+   1 Belsőségleves - Gyümölcsleves
+   1 Brokkoli krémleves
+   1 Csirkeaprólék leves
+   1 Csontleves 620ft
+   1 Csángó gulyás 620ft
+   1 Erőleves tésztával zöldségekkel 620ft
+   1 Fahéjas szilvaleves
+   1 Frankfurti leves
+   1 Grízgaluska leves 620ft
+   1 Grízgaluska leves brokkolival 620ft
+   1 Grízgombócleves
+   1 Hamis gulyásleves
+   1 Húsgombóc leves
+   1 Karalábéleves
+   1 Korhelyleves
+   1 Korhelyleves kolbásszal 620ft
+   1 Lebbencsleves
+   1 Lencseleves
+   1 Meggyleves 620ft
+   1 Májgaluskaleves
+   1 Olasz zöldségleves
+   1 Szemes bableves - Gyümölcsleves
+   1 Sárgaborsóleves - Gyümölcsleves
+   1 Tavaszi leves
+   1 Tejfölös gombleves - Csontleves cérnametélttel
+   1 Tárkonyos raguleves - Túrós tészta, mákos metélt
+   1 Tárkonyos sertés raguleves 620ft
+   1 Tárkonyos vegetáriánus zöldségleves 620ft
+   1 Vaníliás almaleves 620ft
+   1 Zsemlegombócleves
+   2  + MEGLEPETÉS SÜTEMÉNY
+   2  -Kossuth utca 16. Házhozszállítás 10 órától ! Menü:1680ft TEL:0630-66-17-100
+   2  A Biztosítási Bázis weboldalának megtekintéséhez Kérjük Kattintson az alábbi logóra 0fzt
+   2  A mai menü: 1800ft
+   2  A: Hentes tokány, tészta
+   2  A: Paradicsomos húsgombóc
+   2  A: Rakott zöldbab
+   2  A: Székelykáposzta
+   2  B: Bolognai spagetti
+   2  Babgulyás
+   2  Crispy Chicken Nuggets 7db (fűszerbundában sült csirkemell)+hasábburgonya 1300ft
+   2  Cryspy Chicken Wings (fűszerbundában sült szárny) 5db + káposzta saláta 1300ft
+   2  Desszert: Palacsinta 650 Ft/adag (2db)Menü ára: 1.380FT (+100 Ft csom.) Előfizetve (minimum 5nap): 1.300FT Kiszállítás ingyenes! TEL: 06-20-211-8262 
+   2  Fitness menü: Cornflakes saláta (290 kcal) 1590 Ft.-
+   2  Fitness menü: Fitt saláta, csirkemell sonkával (250 kcal) 1590 Ft.-
+   2  Fitness menü: Görög saláta (260 kcal) 1590 Ft.-
+   2  Fitness menü: Tonhal saláta (280 kcal) 1690 Ft.-
+   2  Grízgaluska leves
+   2  Gyümölcsleves
+   2  Hamburger menü: Chicken Burger sültkrumplival 1940 Ft.-
+   2  Hamburger menü: JuIcy Burger (mézes mustáros) sültkrumplival 2340 Ft.-
+   2  Hamburger menü: Sajtburger sültkrumplival 2240 Ft.-
+   2  Hamburger menü: Smokey Burger (Barbecue) sültkrumplival 2240 Ft.-
+   2  Hamburger menü: Szendy Burger sültkrumplival 2140 Ft.-
+   2  Házhozszállítás +36308754828 , +36709331919
+   2  Házhozszállításos menürendelés 10:00-ig 
+   2  Hétköznapi árakon, nem hétköznapi ebéd... 
+   2  Húsleves
+   2  Húsleves tésztával
+   2  Kis menü 2 féle hús + köret 990ft
+   2  Kis menü 990ft Nagy menü 1350ft Nyitvatartás: H-Szo. 9:00-22ig V. 9-20h-ig
+   2  Kiskunfélegyháza Könyök utca 2
+   2  Kossuth utca 16. Házhozszállítás 10 órától ! Menü:1680ft TEL:0630-66-17-100 Fitness menü: Cézár saláta (320 kcal) 1690 Ft.-
+   2  Lebbencsleves
+   2  Mai menü 1800ft
+   2  Mai menü 1850ft
+   2  Meggyleves
+   2  Menü 1600 Ft Menü rendelés 10.00-ig csomagolás 200ft/menü házhozszállítás ingyenes Telefon: 76/467-069
+   2  Menü 1800Ft Kiszállítva 1850ft csomagolás 100ft/Doboz Tel: 76/431-386 ; 06-20-330-60-18
+   2  Menü 1990Ft
+   2  Menü 1990Ft 
+   2  Menü:A-B 1600ft C:1750ft Kiszállítás: 50ft Csomagolás 150ft/edény +3670-709-3831 NyT: H-Cs 09-15h P-Sz 09-22 Vas- Zárva -
+   2  Menü:A-B 1600ft C:1750ft Kiszállítás: 50ft Csomagolás 150ft/edény +3670-709-3831 NyT: H-Cs 09-15h P-Sz 09-22 Vas- Zárva Hurka-kolbász, friss kenyérrel, savanyúsággal.
+   2  Menü:A-B 1600ft C:1750ft Kiszállítás: 50ft Csomagolás 150ft/edény +3670-709-3831 NyT: H-Cs 09-15h P-Sz 09-22 Vas- Zárva ZÁRVA
+   2  Munkaerőt felveszünk ! 
+   2  Nagy menü 3 féle hús +köret 1350ft
+   2  Nyitva tartás: hétfő-szombatig. 11:00-17:00 vasárnap 11:00-16:00 -
+   2  Nyitva tartás: hétfő-szombatig. 11:00-17:00 vasárnap 11:00-16:00 ZÁRVA
+   2  Rendelésfelvétel H-Szo 9-18 ig Vasárnap 10-17.00 ig
+   2  Tarhonyaleves
+   2  Tel: 0670/420-66-84 Kiszállítás ingyenes ! Zárva
+   2  További ajánlatainkért kattintson ide Faltro.hu
+   2  ZÁRVA
+   2  Zöldségleves
+   2  a'La carte ételeinkkel várjuk kedves vendégeinket 
+   2  www.szendvicsbar.hu Címünk ITT Nyitva tartás: hétfő-péntekig. 06:00-18:00. Tel: +36 70 /533-36-54 
+   2  Állandó levesek: hideg gyümölcsleves, csontleves cérnametélttel.
+   2  Étlapunkat ITT találja! TEL: 0670/671-59-30 MENÜ RENDELÉS 12:00-ig, KISZÁLLÍTÁS 11:00-TÓL Kínálatunkat ITT találja ! TEL: 06-30-126-9782 -
+   2 A TESCO ÁRUHÁZ ÜZLETSORÁN
+   2 A kiszállítás félegyházán 5000ft felett ingyenes ez alatt 300 ft, 5km körzetben 300ft 10km körzetben 500 ft, 15km körzetben 700ft, 20 km körzetben 1000ft
+   2 Bacon, sajt vagy csibe burger 1300ft
+   2 Csontleves
+   2 Csütörtöki menü 
+   2 Gyros tál 1300ft
+   2 Házhozszállításos menürendelés 10:00-ig Menü:A-B 1600ft C:1750ft Kiszállítás: 50ft Csomagolás 150ft/edény +3670-709-3831 NyT: H-Cs 09-15h P-Sz 09-22 Vas- Zárva
+   2 Hétfői menü 
+   2 Keddi menü 
+   2 Korrekt árak, kedves kiszolgálás
+   2 Mai menü 1850ft
+   2 Minden nap gyümölcsleves
+   2 Napi ajánlatainkat megtalálja a Faltro.hu oldalon.
+   2 Orjaleves
+   2 Pénteki menü 
+   2 Szerdai menü 
+   2 Szombati menü 
+   2 Tarhonyaleves
+   2 Vasárnapi menü 
+   2 Weber, crispy vagy grillezett csirkemell, saláta 1300ft
+   2 Zöldségleves
+   3  B: Brassói aprópecsenye
+   3  Csontleves
+   3 Paradicsomleves
+   4  A Biztosítási Bázis weboldalának megtekintéséhez Kérjük Kattintson az alábbi logóra 0
+   4  Magán vagy céges rendezvényekre vállaljuk party szendvicsek elkészítését! 
+   4  Nyitva tartás: hétfő-péntekig. 06:00-18:00. Tel: +36 70 /533-36-54 
+   4  Étlapunkat ITT találja! TEL: 0670/671-59-30 MENÜ RENDELÉS 12:00-ig, KISZÁLLÍTÁS 11:00-TÓL Kínálatunkat ITT találja ! TEL: 06-30-126-9782 Mai menü
+   5  Egész héten ajándék süti helyben fogyasztáskor!
+   6 
+   6  -
+   6  A Biztosítási Bázis weboldalának megtekintéséhez Kérjük Kattintson az alábbi logóra
+   6  BBQ csirkemell, sült burgonya, őszi saláta 
+   6  Borjú májgaluska leves gazdagon 
+   6  Burgonyakrémleves zeller chipsszel 
+   6  C: Bolognai spagetti
+   6  C: Pankó morzsás rántott szelet, kukoricás rizs
+   6  Csirke nuggets variációk, rizi-bizi, cheddar szósz 
+   6  Libaleves daragaluskával 
+   6  Magyaros saslik, grill zöldség, jus 
+   6  Tejszínes-kakukkfüves gombakrémleves, kruton 
+   6  Töltött káposzta 
+   6  Étlapunkat ITT találja! TEL: 0670/671-59-30 MENÜ RENDELÉS 12:00-ig, KISZÁLLÍTÁS 11:00-TÓL Kínálatunkat ITT találja ! TEL: 06-30-126-9782 Mai menü 
+   7  Leves + Egészben sült csülök, steak burgonya, hagymakarikával 3250ft 
+   7  Marhagulyás + Barackos - túrós palacsinta 3200ft 
+   8  Korrekt árak, kedves kiszolgálás
+   8  Napi ajánlatainkat megtalálja a Faltro.hu oldalon.
+   8 Házhozszállításos menürendelés 10:00-ig 
+   8 Nyitva tartás: hétfő-péntekig. 06:00-18:00. Tel: +36 70 /533-36-54 
+  10  A menü ára: 1450ft Kiszállítás hétfőtől péntekig.
+  10  A-B menü heti előrendeléssel elvitelre 1490ft, heti előrendelés nélküli elvitelre 1590ft
+  10  Diák,Nyugdíjas: 2240Ft 12 év alatti Gyermek:1690Ft
+  10  JÓKER ajánlat : Rántott szelet körettel vagy Rántott sajt körettel tarárral vagy
+  10  Kiskunfélegyháza Könyök utca 2 
+  10  Kiszállítás: 11:30 és 13:00 között. Csomagolás: 150 Ft
+  10  Kiszállításos - rendelésfelvétel 10.30-ig Tel: +36-70-330-4331
+  10  Kossuth utca 16. Házhozszállítás 10 órától ! Menü:1680ft TEL:0630-66-17-100 
+  10  Magán vagy céges rendezvényekre
+  10  Menü adag ára 1680ft
+  10  Menü ára: 1690.- 
+  10  Minden nap gyümölcsleves
+  10  Nyitva tartás: hétfő-szombatig. 11:00-17:00 vasárnap 11:00-16:00 Minden nap friss és változatos ételek közül válogathat.
+  10  Rendelés felvétel: 12:00-ig!
+  10  Rendelésfelvétel: 9 - 12:00-ig.
+  10  Roston csirkemell salátával 1680ft 
+  10  vállaljuk party szendvicsek elkészítését! Tel: +36 70/533-36-54.
+  10 A-B menü napi rendelés kiszállítással 1650ft + doboz (100ft) 
+  10 Hétfőtől-Péntekig: ára: felnőtt: 2490Ft 
+  10 Menü kiszállítás augusztus 1-től.
+  12  (leves nélkül)
+  12  A SÉFÜNK heti menüajánlata :
+  12  A menü ára 1300ft csomagolás +80ft Kiszállítás Ingyenes Tel: +36702886689 
+  12  Desszert: Palacsinta 650 Ft/adag (2db)
+  12  Délutáni ajánlatunkat ITT találja Hétfőtől Szombatig 14 - 21 óráig rendelhető!
+  12  Házhozszállításos menürendelés 10:00-ig
+  12  Ingyenes házhozszállítás, menürendelés felvétel 9-14 óráig! (doboz 100ft/db)
+  12  Menü 1600 Ft Menü rendelés 10.00-ig csomagolás 200ft/menü házhozszállítás ingyenes Telefon: 76/467-069 
+  12  Menü ára: 1.380FT (+100 Ft csom.) Előfizetve (minimum 5nap): 1.300FT Kiszállítás ingyenes! TEL: 06-20-211-8262 
+  12  Rántott sajt, sült burgonya, tartármártás 
+  12  Tel: 0670/420-66-84 Kiszállítás ingyenes ! Hétköznapi árakon, nem hétköznapi ebéd... 
+  12  séf ajánlata I. 2290 Ft
+  12  séf ajánlata II. 2290ft
+  12  séf ajánlata III. 1920ft
+  12  www.szendvicsbar.hu Címünk ITT
+  12  Állandó levesek: hideg gyümölcsleves, csontleves cérnametélttel.Menü 1800Ft Kiszállítva 1850ft csomagolás 100ft/Doboz Tel: 76/431-386 ; 06-20-330-60-18
+  14  A Séf ajánlata:
+  14  A mai menekülő menü: Rántott szelet, sajt, gomba körettel+leves 
+  14  A'la carte étlapunkat ITT találja
+  14  Diák,Nyugdíjas:2.240FT 12 év alatti gyermek:1.990Ft
+  14  Extra menü minden nap 2000ft
+  14  Kézműves hamburgereinket keressétek telefonon vagy
+  14  Menü 1600ft Doboz 100ft/db Tel: 0676/461-766, 0620/970-3466 
+  14  Menü 1650 ft, előfizetve 1550 ft, kiszállítás díja 70ft/menü csomagolás 80 ft/doboz Hétvégi menü 1850ft 06-30/589-64-64, 76/462-640
+  14  Menü 1690 Ft, H - P 11-15 óráig NyT: h-p 11-22 h, szo: 11-24 h, vas: 11-17 h
+  14  Napi menü: 11-13 óra között, Ebédmenü rendelés 8:00-tól 10:30-ig
+  14  OTP Szép kártya, Kiszállításos - rendelésfelvétel 10.30-ig Tel: +36703304331 Konyha: Tel: 76-461-752
+  14  Rántott szelet vagy rántott sajt vagy roston sült csirkecomb sültburgonya, saláta
+  14  Rántott szelet/sajt hasábburgonyával 1.600 Ft/adag
+  14  Rózsakert honlap Heti menü 
+  14  Sport szelet (30dkg rántott sertés szelet, 40dkg steak burgonya) 2450ft 
+  14  Svédasztalos korlátlan ételfogyasztás(2 órán át)
+  14  Szombat-vasárnapig: felnőtt:2.790Ft 
+  14  Séf ajánlata: Csontleves/Gyümölcsleves
+  14  Telefonszám:+36-30-398-21-69
+  14  Tálakat és a'la carte ételeket is készítünk megrendelésre!
+  14  Zöldség vagy gyümölcsleves - 
+  14  https://www.facebook.com/csillagvendeglokiskunfelegyhaza
+  14  rántott /sajt vagy r.szelet vagy r. jércemell/ rizzsel, milánói sertésborda
+  14  Állandó kínálatunk: csont és gyümölcs leves. Húsos második helyett választható:
+  14  Étlapunk IDE kattintva érhető el !
+  14  Étlapunkat ITT találod!
+  14 Bankkártyát, PAYPASS és OTP, MKB, K&H SZÉP kártyát elfogadunk ! 
+  14 Házhozszállításos menürendelés 14:00-ig
+  14 Tálakat és a'la carte ételeket is készítünk megrendelésre!
+  24  ••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+ 166  
