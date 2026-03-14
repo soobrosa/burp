@@ -10,9 +10,8 @@ def save_page(url, filename):
 
   response = urllib.request.urlopen(url)
   webContent = response.read().decode('windows-1250')
-  f = open(filename, 'w')
-  f.write(webContent)
-  f.close
+  with open(filename, 'w') as f:
+    f.write(webContent)
 
 day_names = ['vasarnap', 'szombat', 'pentek', 'csutortok', 'szerda', 'kedd', 'hetfo']
 
