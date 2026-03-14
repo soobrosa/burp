@@ -1,0 +1,100 @@
+{
+  "groups": [
+    {
+      "canonical": "hasábburgonya",
+      "variants": ["sült krumpli", "sültburgonya", "steak burgonya", "hasáb burgonya", "pommes"]
+    },
+    {
+      "canonical": "burgonyapüré",
+      "variants": ["krumplipüré", "törtburgonya", "tört burgonya"]
+    },
+    {
+      "canonical": "bécsi szelet",
+      "variants": ["wiener szelet", "wiener schnitzel"]
+    },
+    {
+      "canonical": "rizibizi",
+      "variants": ["rizi-bizi", "rizi bizi"]
+    },
+    {
+      "canonical": "bolognai spagetti",
+      "variants": ["bolognai szósz spagetti", "bolognese spagetti", "bolognai"]
+    },
+    {
+      "canonical": "gyümölcsleves",
+      "variants": ["hideg gyümölcsleves", "gyümölcs leves", "meggyleves", "meggy leves", "almaleves"]
+    },
+    {
+      "canonical": "csontleves",
+      "variants": ["csontleves cérnametélttel", "csontleves cérna metélttel"]
+    },
+    {
+      "canonical": "húsleves",
+      "variants": ["húsleves tésztával", "húsleves cérnametélttel", "húsleves csigatésztával"]
+    },
+    {
+      "canonical": "rántott sajt",
+      "variants": ["rántott trappista", "rántott trappista sajt"]
+    },
+    {
+      "canonical": "rántott csirkemell",
+      "variants": ["rántott jércemell", "rántott jérce mell", "rántott csirke mell"]
+    },
+    {
+      "canonical": "fasírozott",
+      "variants": ["fasírt", "házi fasírozott", "házi fasírt"]
+    },
+    {
+      "canonical": "petrezselymes burgonya",
+      "variants": ["petrezselymes krumpli", "petrezselymes főtt burgonya"]
+    },
+    {
+      "canonical": "sertéspörkölt",
+      "variants": ["sertés pörkölt", "sertéshús pörkölt"]
+    },
+    {
+      "canonical": "csirkepörkölt",
+      "variants": ["csirke pörkölt", "csirkemell pörkölt"]
+    },
+    {
+      "canonical": "roston csirkemell",
+      "variants": ["grillezett csirkemell", "grill csirkemell"]
+    },
+    {
+      "canonical": "milánói sertésborda",
+      "variants": ["milánói borda", "milánói sertés borda"]
+    },
+    {
+      "canonical": "paprikás krumpli",
+      "variants": ["paprikáskrumpli", "paprikás burgonya"]
+    },
+    {
+      "canonical": "galuska",
+      "variants": ["nokedli", "sztrapacska"]
+    },
+    {
+      "canonical": "savanyúság",
+      "variants": ["savanyú káposzta", "savanyúkáposzta", "csemege uborka"]
+    },
+    {
+      "canonical": "túrós csusza",
+      "variants": ["túrós tészta", "túróscsusza"]
+    },
+    {
+      "canonical": "káposztás tészta",
+      "variants": ["káposzta tészta", "káposztástészta"]
+    },
+    {
+      "canonical": "paradicsomleves",
+      "variants": ["paradicsomkrémleves", "paradicsom krémleves", "paradicsom leves"]
+    },
+    {
+      "canonical": "zöldségleves",
+      "variants": ["zöldség leves", "vegyes zöldségleves"]
+    },
+    {
+      "canonical": "gyros tál",
+      "variants": ["gyros tányér", "gyros"]
+    }
+  ]
+}
