@@ -71,6 +71,8 @@ Three tiers based on natural breaks in the frequency distribution. Counts are to
 
 42 dishes, ~3,644 occurrences. Familiar dishes that rotate in and out of weekly menus.
 
+**Profile:** main courses (1,919) and soups (1,561) are roughly balanced — soups carry more weight here than in Tier 1. Pork (458) edges out beef (365); chicken drops to fifth (123), and vegetarian dishes (840) — főzelék, rakott, pasta — take a much larger share. The dominant cooking methods shift away from frying: *pörkölt* (457) leads, followed by *sült* (241), *töltött* (178), and *rakott* (151). Characteristic dish types: stews (gulyás-, csirke-, sertéspörkölt), layered casseroles (rakott karfiol, székelykáposzta), thicker soups (tarhonya-, frankfurti, brokkoli krém), and a handful of comfort-food desserts (máglyarakás).
+
 | # | Dish | Count | | # | Dish | Count |
 |---|---|---:|---|---|---|---:|
 | 1 | gyros tál | 186 | | 11 | frankfurti leves | 115 |
@@ -87,6 +89,8 @@ Three tiers based on natural breaks in the frequency distribution. Counts are to
 ### Tier 3 — Occasional (10–49 occurrences)
 
 214 dishes, ~4,204 occurrences. Variety items that keep menus from feeling repetitive.
+
+**Profile:** mains (2,193) and soups (1,674) again split most of the weight, but főzelék (181) finally appears as a real category — almost absent in Tier 1. Protein distribution flattens: vegetarian 456, chicken 387, pork 368, beef 297 — no single protein dominates. Methods diversify further: *pörkölt* (405) and *rakott* (260) lead, joined by *párizsi*-style (92), *főtt* (boiled, 38), and *bécsi* (Wiener-style, 23) — techniques rare in higher tiers. Characteristic dish types: regional and old-style stews (hentes/sertés/borsos tokány, hamis gulyás, korhelyleves), heritage dishes (erdélyi rakott káposzta, krumplis tészta, szilvás gombóc), and lighter brothy soups (lencse-, csirkeaprólék, húsgombóc). This is where the menus pick up character and local variation.
 
 | # | Dish | Count | | # | Dish | Count |
 |---|---|---:|---|---|---|---:|
