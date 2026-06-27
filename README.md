@@ -26,86 +26,97 @@ Dependencies in `requirements.txt`.
 
 ## TL;DR
 
-Corpus: ~39,600 menu rows, ~6,900 unique dishes after resolution, Nov 2022 → Jun 2025.
+Corpus: ~51,200 menu rows, ~5,050 unique dishes after resolution, Nov 2022 → Apr 2026.
 
-1. **Courses** — főétel 4,985 (73%) · leves 1,399 (20%) · főzelék 339 (5%) · desszert 148 (2%).
-2. **Proteins** — csirke 2,086 · sertés 1,838 · vegetáriánus 697 · marha 374 · hal 238.
-3. **Cooking methods** — rántott 1,143 · sült 919 · töltött 427 · párolt 413 · pörkölt 311.
-4. **Top dishes overall** — roston csirkemell 748 · gyümölcsleves 696 · burgonyapüré 649 · rizibizi 647 · hasábburgonya 545.
-5. **Top soups** — gyümölcsleves 696 · csontleves 484 · húsleves 428 · zöldségleves 363 · paradicsomleves 170.
-6. **Top főzelék** — tökfőzelék fasírozottal 26 · burgonyafőzelék fasírttal 25 · sárgaborsó főzelék sertéspörkölttel 21 · kelkáposzta főzelék fasírozottal 21 · gyümölcsfőzelék párizsi csirkemellel 19.
-7. **Winter-peaking dishes (peak Dec–Feb)** — csontleves (484, idx 0.36) · galuska (514, 0.28) · rántott sajt (533, 0.29) · káposztás tészta (122, 0.35) · túrós csusza (143, 0.33).
-8. **Spring-peaking (peak Mar–May)** — gyümölcsleves (696) · burgonyapüré (649) · hasábburgonya (545) · húsleves (428) · sertéspörkölt (180).
-9. **Summer-peaking (peak Jun–Aug)** — paradicsomleves (170) · zöldbableves (84) · mákos tészta (40) · töltött paprika (26) · sajtos tészta (25).
-10. **Autumn-peaking (peak Sep–Nov)** — zöldségleves (363) · bolognai spagetti (327) · csirkepörkölt (97) · pecsenyeleves (82) · brassói aprópecsenye (69).
+1. **Courses** (unique dishes) — főétel 5,994 (72%) · leves 1,688 (20%) · főzelék 388 (5%) · desszert 188 (2%).
+2. **Proteins** (unique dishes) — csirke 2,536 · sertés 2,218 · vegetáriánus 833 · marha 463 · hal 306.
+3. **Cooking methods** (unique dishes) — rántott 1,400 · sült 1,109 · párolt 503 · töltött 491 · pörkölt 357.
+4. **Top dishes overall** (resolved occurrences) — gyümölcsleves 2,268 · hasábburgonya 1,232 · roston csirkemell 995 · rizibizi 938 · burgonyapüré 886.
+5. **Top soups** — gyümölcsleves 2,268 · csontleves 642 · húsleves 593 · zöldségleves 467 · lebbencsleves 269.
+6. **Top főzelék** — gyümölcsfőzelék párizsi csirkemellel 24 · meggyfőzelék párizsi csirkével 21 · burgonyafőzelék vagdalttal 20 · sárgaborsó főzelék borsos tokánnyal 19 · meggyfőzelék párizsi csirkemellel 18.
+7. **Winter-peaking dishes (peak Dec–Feb)** — rántott sertésszelet (75, idx 0.76) · töltött káposzta (65, 0.61) · paprikás krumpli (66, 0.53) · tarhonyás hús (64, 0.49) · paradicsomos húsgombóc (88, 0.43).
+8. **Spring-peaking (peak Mar–May)** — sertés tokány galuskával (62, 0.58) · carbonara spagetti (60, 0.55) · magyaros burgonyaleves (63, 0.46) · rakott kelkáposzta (53, 0.41) · szilvás gombóc (51, 0.40).
+9. **Summer-peaking (peak Jun–Aug)** — fahéjas szilvaleves (60, 0.42) · mákos tészta (51, 0.35) · zöldborsóleves (131, 0.25) · hentes tokány (56, 0.24) · lasagne (114, 0.21).
+10. **Autumn-peaking (peak Sep–Nov)** — krumplis tészta (54, 0.72) · hamis gulyásleves (51, 0.64) · korhelyleves (50, 0.58) · rakott zöldbab (69, 0.51) · brassói aprópecsenye (80, 0.40).
+
+> Seasonal lists rank by seasonality index (peak-month concentration) among dishes with ≥50 occurrences, so they surface genuinely seasonal items rather than year-round staples. Top-soup and top-főzelék lists skip a few entries the categorizer mislabels by course (e.g. *galuska* tagged as a soup) — see [Data notes](#data-notes).
 
 ## Dish hierarchy
 
-Three tiers based on natural breaks in the frequency distribution. Counts are total occurrences across the corpus (Nov 2022 → Jun 2025).
+Three tiers based on natural breaks in the frequency distribution. Counts are total occurrences across the corpus (Nov 2022 → Apr 2026).
 
 ### Tier 1 — Staples (≥200 occurrences)
 
-17 dishes, ~9,500 occurrences combined. The menu backbone — appear constantly across restaurants and seasons.
+20 dishes, ~12,750 occurrences combined. The menu backbone — appear constantly across restaurants and seasons. Mains (7,695) lead soups (4,452); chicken (5,071) edges pork (3,629) and vegetarian (3,189); frying dominates (*rántott* 5,900).
 
 | # | Dish | Count |
 |---|---|---:|
-| 1 | gyümölcsleves | 1,662 |
-| 2 | hasábburgonya | 1,148 |
-| 3 | roston csirkemell | 752 |
-| 4 | burgonyapüré | 716 |
-| 5 | rizibizi | 707 |
-| 6 | rántott sajt | 552 |
-| 7 | galuska | 549 |
-| 8 | csontleves | 497 |
-| 9 | petrezselymes burgonya | 476 |
-| 10 | húsleves | 449 |
-| 11 | zöldségleves | 372 |
-| 12 | rántott csirkemell | 366 |
-| 13 | bolognai spagetti | 336 |
-| 14 | fasírozott | 281 |
-| 15 | milánói sertésborda | 240 |
-| 16 | lebbencsleves | 207 |
-| 17 | sertéspörkölt | 203 |
+| 1 | gyümölcsleves | 2,268 |
+| 2 | hasábburgonya | 1,232 |
+| 3 | roston csirkemell | 995 |
+| 4 | rizibizi | 938 |
+| 5 | burgonyapüré | 886 |
+| 6 | galuska | 674 |
+| 7 | csontleves | 642 |
+| 8 | rántott csirkemell | 632 |
+| 9 | rántott sajt | 630 |
+| 10 | húsleves | 593 |
+| 11 | petrezselymes burgonya | 583 |
+| 12 | zöldségleves | 467 |
+| 13 | bolognai spagetti | 386 |
+| 14 | fasírozott | 352 |
+| 15 | milánói sertésborda | 290 |
+| 16 | lebbencsleves | 269 |
+| 17 | sertéspörkölt | 252 |
+| 18 | gyros tál | 238 |
+| 19 | paradicsomleves | 213 |
+| 20 | túrós csusza | 211 |
 
 ### Tier 2 — Regulars (50–199 occurrences)
 
-42 dishes, ~3,644 occurrences. Familiar dishes that rotate in and out of weekly menus.
+53 dishes, ~4,663 occurrences. Familiar dishes that rotate in and out of weekly menus.
 
-**Profile:** main courses (1,919) and soups (1,561) are roughly balanced — soups carry more weight here than in Tier 1. Pork (458) edges out beef (365); chicken drops to fifth (123), and vegetarian dishes (840) — főzelék, rakott, pasta — take a much larger share. The dominant cooking methods shift away from frying: *pörkölt* (457) leads, followed by *sült* (241), *töltött* (178), and *rakott* (151). Characteristic dish types: stews (gulyás-, csirke-, sertéspörkölt), layered casseroles (rakott karfiol, székelykáposzta), thicker soups (tarhonya-, frankfurti, brokkoli krém), and a handful of comfort-food desserts (máglyarakás).
+**Profile:** main courses (2,351) and soups (2,044) are roughly balanced — soups carry more weight here than in Tier 1. Vegetarian dishes (826) — főzelék, rakott, pasta — take the largest protein share, ahead of beef (494), pork (393) and chicken (213). The dominant cooking methods shift away from frying: *rakott* (366) leads, followed by *pörkölt* (300), *sült* (226), and *töltött* (129). Characteristic dish types: stews (gulyás-, csirke-, sertéspörkölt), layered casseroles (rakott karfiol, székelykáposzta), thicker soups (tarhonya-, frankfurti, brokkoli krém), and a handful of comfort-food desserts (máglyarakás).
 
 | # | Dish | Count | | # | Dish | Count |
 |---|---|---:|---|---|---|---:|
-| 1 | gyros tál | 186 | | 11 | frankfurti leves | 115 |
-| 2 | paradicsomleves | 175 | | 12 | székelykáposzta | 112 |
-| 3 | túrós csusza | 159 | | 13 | zöldborsóleves | 106 |
-| 4 | tojásleves | 134 | | 14 | savanyúság | 104 |
-| 5 | bacon/sajt/csibe burger | 130 | | 15 | brokkoli krémleves | 98 |
-| 6 | gulyásleves | 123 | | 16 | lasagne | 94 |
-| 7 | káposztás tészta | 123 | | 17 | máglyarakás | 93 |
-| 8 | csirkepörkölt | 123 | | 18 | rakott karfiol | 92 |
-| 9 | tarhonyaleves | 120 | | 19 | zöldbableves | 89 |
-| 10 | orjaleves | 116 | | 20 | pecsenyeleves | 82 |
+| 1 | tojásleves | 172 | | 11 | zöldborsóleves | 136 |
+| 2 | bacon, sajt vagy csibe burger | 169 | | 12 | brokkoli krémleves | 125 |
+| 3 | csirkepörkölt | 162 | | 13 | máglyarakás | 123 |
+| 4 | orjaleves | 155 | | 14 | lasagne | 121 |
+| 5 | tarhonyaleves | 154 | | 15 | rakott karfiol | 120 |
+| 6 | káposztás tészta | 153 | | 16 | zöldbableves | 108 |
+| 7 | gulyásleves | 150 | | 17 | pecsenyeleves | 92 |
+| 8 | székelykáposzta | 140 | | 18 | paradicsomos húsgombóc | 92 |
+| 9 | frankfurti leves | 140 | | 19 | brassói aprópecsenye | 89 |
+| 10 | savanyúság | 138 | | 20 | májgombócleves | 79 |
 
 ### Tier 3 — Occasional (10–49 occurrences)
 
-214 dishes, ~4,204 occurrences. Variety items that keep menus from feeling repetitive.
+248 dishes, ~4,798 occurrences. Variety items that keep menus from feeling repetitive.
 
-**Profile:** mains (2,193) and soups (1,674) again split most of the weight, but főzelék (181) finally appears as a real category — almost absent in Tier 1. Protein distribution flattens: vegetarian 456, chicken 387, pork 368, beef 297 — no single protein dominates. Methods diversify further: *pörkölt* (405) and *rakott* (260) lead, joined by *párizsi*-style (92), *főtt* (boiled, 38), and *bécsi* (Wiener-style, 23) — techniques rare in higher tiers. Characteristic dish types: regional and old-style stews (hentes/sertés/borsos tokány, hamis gulyás, korhelyleves), heritage dishes (erdélyi rakott káposzta, krumplis tészta, szilvás gombóc), and lighter brothy soups (lencse-, csirkeaprólék, húsgombóc). This is where the menus pick up character and local variation.
+**Profile:** mains (2,563) and soups (1,749) again split most of the weight, but főzelék (287) appears as a real category — almost absent in Tier 1. Protein distribution flattens: vegetarian 537, chicken 509, pork 452, beef 313 — no single protein dominates. Methods diversify further: *pörkölt* (510) leads, joined by *rakott* (148) and *párizsi*-style (148) — techniques rare in higher tiers. Characteristic dish types: regional and old-style stews (hentes/sertés/borsos/csikós tokány, hamis gulyás, korhelyleves), heritage dishes (erdélyi rakott káposzta, krumplis tészta, szilvás gombóc), and lighter brothy soups (lencse-, csirkeaprólék, húsgombóc). This is where the menus pick up character and local variation.
 
 | # | Dish | Count | | # | Dish | Count |
 |---|---|---:|---|---|---|---:|
-| 1 | pirított tésztaleves | 49 | | 11 | mákos tészta | 42 |
-| 2 | rakott burgonya | 48 | | 12 | erdélyi rakott káposzta | 42 |
-| 3 | húsgombóc leves | 48 | | 13 | szilvás gombóc | 41 |
-| 4 | hentes tokány, tészta | 47 | | 14 | sárgaborsó krémleves | 41 |
-| 5 | lencseleves | 47 | | 15 | tejszínes-gombás csirkemell tésztával | 40 |
-| 6 | legényfogó leves | 47 | | 16 | csirkeaprólék leves | 39 |
-| 7 | rakott kelkáposzta | 46 | | 17 | krumplis tészta | 39 |
-| 8 | sertés tokány galuskával | 45 | | 18 | sajttal-sonkával töltött szelet | 39 |
-| 9 | korhelyleves | 44 | | 19 | borsos tokány tészta | 38 |
-| 10 | hamis gulyásleves | 43 | | 20 | (continues — 214 total) |  |
+| 1 | sárgaborsó krémleves | 49 | | 11 | zellerkrémleves | 41 |
+| 2 | sonkás kocka | 46 | | 12 | tejszínes-gombás csirkemell tésztával | 41 |
+| 3 | borsos tokány tésztával | 46 | | 13 | burgonyaleves | 41 |
+| 4 | brassói | 45 | | 14 | grízgombóc leves | 41 |
+| 5 | zúzapörkölt tésztával | 44 | | 15 | csülökpörkölt tarhonyával | 40 |
+| 6 | sárgaborsóleves | 44 | | 16 | lencsegulyás | 40 |
+| 7 | sertéskaraj vadasan, tészta | 43 | | 17 | túrós palacsinta | 39 |
+| 8 | rizsfelfújt | 42 | | 18 | gombaleves | 39 |
+| 9 | tárkonyos raguleves | 42 | | 19 | nyírségi gombócleves | 38 |
+| 10 | csikós tokány, tészta | 42 | | 20 | (continues — 248 total) |  |
 
 ### Below tier
 
-3,956 long-tail dishes appearing 1–9 times each (~7,659 occurrences). Daily specials, one-offs, and seasonal experiments — not part of the hierarchy.
+4,726 long-tail dishes appearing 1–9 times each (~9,277 occurrences). Daily specials, one-offs, and seasonal experiments — not part of the hierarchy.
+
+### Data notes
+
+- **Coverage.** The scraper (GitHub Actions, weekly) collects HTML into `1_html/`; the analysis pipeline (steps 2–8) is run by hand. This refresh reprocessed the full corpus through **2026-04-05** — the previous README froze at June 2025 because the pipeline hadn't been re-run, even though scraping continued.
+- **Menu boilerplate.** The newer site layout interleaves price lines, section headers (`Levesek:`, `Főételek:`), greetings, and season's-greetings into the menu blocks. `menu_extractor.py` captured these as dish rows, and previously they survived into the results (~40 raw strings, ~1,600 occurrences — `Kínálatunkat itt találja` alone appeared 606×). `clean_dishes.py`'s `is_noise_line()` now filters them (price tokens, trailing-colon labels, greeting/announcement and section-header phrases), so they no longer reach the dish data.
+- **Casing.** Some canonical names retain their original capitalization where synonym/lemma resolution didn't map them to a lowercase form (curated synonyms in `synonym_map.json` are lowercase; auto-grouped and unmatched dishes keep their cleaned, sentence-cased form). Display names above are lowercased for consistency; this introduces no count collisions (verified) and is cosmetic — it does not affect any count.
 

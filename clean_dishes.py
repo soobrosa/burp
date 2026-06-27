@@ -30,6 +30,23 @@ def is_noise_line(dish_name):
                                                 'menekülő menü:', 'napi menünk:', 'mai menü:',
                                                 'a mai menekülő menü:', 'menekülő menük:']):
         return True
+
+    # Greetings, opening announcements, season's greetings, menu chrome
+    if any(pattern in dish_lower for pattern in ['kínálatunk', 'itt találja', 'köszönjük', 'megértés',
+                                                'kedves vendég', 'vendégeink', 'várjuk', 'viszontlát',
+                                                'jó étvágy', 'nyitás', 'nyitva', 'zárva', 'áraink',
+                                                'kellemes', 'boldog új', 'ünnepeket', 'rendelhető',
+                                                'ételeink', 'első:', 'második:', 'harmadik:',
+                                                'levesek:', 'főételek:', 'köretek:', 'desszertek:']):
+        return True
+
+    # Price tokens (e.g. "2300ft", "990 ft") — menu pricing, not a dish
+    if re.search(r'\d+\s*ft\b', dish_lower):
+        return True
+
+    # Section headers / labels ending in a colon (e.g. "Levesek:", "Mai menü :")
+    if dish_name.strip().endswith(':'):
+        return True
     
     # Time indicators and administrative text
     if re.match(r'^[\d:\s-]+$', dish_name) or dish_name in ['felnőtt:', 'leves nélkül']:

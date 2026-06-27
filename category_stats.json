@@ -1,33 +1,33 @@
 {
-  "total_dishes": 6871,
+  "total_dishes": 8258,
   "course_distribution": {
-    "főétel": 4985,
-    "leves": 1399,
-    "főzelék": 339,
-    "desszert": 148
+    "főétel": 5994,
+    "leves": 1688,
+    "főzelék": 388,
+    "desszert": 188
   },
   "protein_distribution": {
-    "csirke": 2086,
-    "sertés": 1838,
-    "vegetáriánus": 697,
-    "marha": 374,
-    "hal": 238
+    "csirke": 2536,
+    "sertés": 2218,
+    "vegetáriánus": 833,
+    "marha": 463,
+    "hal": 306
   },
   "cooking_method_distribution": {
-    "rántott": 1143,
-    "sült": 919,
-    "töltött": 427,
-    "párolt": 413,
-    "pörkölt": 311,
-    "párizsi": 206,
-    "grillezett": 164,
-    "rakott": 128,
-    "tepsis": 84,
-    "pirított": 70,
-    "fasírozott": 69,
-    "főtt": 52,
-    "milánói": 42,
-    "bundás": 15,
-    "bécsi": 12
+    "rántott": 1400,
+    "sült": 1109,
+    "párolt": 503,
+    "töltött": 491,
+    "pörkölt": 357,
+    "párizsi": 242,
+    "grillezett": 232,
+    "rakott": 149,
+    "tepsis": 99,
+    "pirított": 87,
+    "fasírozott": 77,
+    "főtt": 60,
+    "milánói": 50,
+    "bundás": 21,
+    "bécsi": 14
   }
 }

@@ -3,622 +3,622 @@
     "tél": [
       {
         "dish": "roston csirkemell",
-        "count": 219,
-        "seasonality": 0.179
+        "count": 284,
+        "seasonality": 0.147
       },
       {
         "dish": "burgonyapüré",
-        "count": 177,
-        "seasonality": 0.19
-      },
-      {
-        "dish": "gyümölcsleves",
-        "count": 169,
-        "seasonality": 0.15
-      },
-      {
-        "dish": "rántott sajt",
-        "count": 160,
-        "seasonality": 0.287
-      },
-      {
-        "dish": "galuska",
-        "count": 155,
-        "seasonality": 0.28
+        "count": 192,
+        "seasonality": 0.193
       },
       {
         "dish": "rizibizi",
-        "count": 152,
-        "seasonality": 0.196
+        "count": 178,
+        "seasonality": 0.21
+      },
+      {
+        "dish": "gyümölcsleves",
+        "count": 153,
+        "seasonality": 0.112
+      },
+      {
+        "dish": "rántott sajt",
+        "count": 148,
+        "seasonality": 0.314
+      },
+      {
+        "dish": "galuska",
+        "count": 145,
+        "seasonality": 0.202
       },
       {
         "dish": "hasábburgonya",
-        "count": 151,
-        "seasonality": 0.196
-      },
-      {
-        "dish": "csontleves",
-        "count": 149,
-        "seasonality": 0.36
-      },
-      {
-        "dish": "Kínálatunkat ITT találja",
-        "count": 128,
-        "seasonality": 0.326
+        "count": 138,
+        "seasonality": 0.146
       },
       {
         "dish": "petrezselymes burgonya",
-        "count": 127,
-        "seasonality": 0.221
-      },
-      {
-        "dish": "húsleves",
-        "count": 119,
-        "seasonality": 0.212
+        "count": 130,
+        "seasonality": 0.219
       },
       {
         "dish": "zöldségleves",
-        "count": 102,
-        "seasonality": 0.176
+        "count": 125,
+        "seasonality": 0.196
       },
       {
-        "dish": "bolognai spagetti",
-        "count": 75,
-        "seasonality": 0.249
+        "dish": "húsleves",
+        "count": 122,
+        "seasonality": 0.169
       },
       {
-        "dish": "rántott csirkemell",
-        "count": 70,
-        "seasonality": 0.389
+        "dish": "csontleves",
+        "count": 114,
+        "seasonality": 0.193
       },
       {
         "dish": "fasírozott",
-        "count": 63,
-        "seasonality": 0.198
-      },
-      {
-        "dish": "milánói sertésborda",
-        "count": 62,
-        "seasonality": 0.192
+        "count": 78,
+        "seasonality": 0.168
       },
       {
         "dish": "Lebbencsleves",
-        "count": 56,
-        "seasonality": 0.195
+        "count": 77,
+        "seasonality": 0.185
       },
       {
-        "dish": "paradicsomleves",
-        "count": 46,
-        "seasonality": 0.227
+        "dish": "bolognai spagetti",
+        "count": 74,
+        "seasonality": 0.251
       },
       {
-        "dish": "túrós csusza",
-        "count": 44,
-        "seasonality": 0.331
+        "dish": "milánói sertésborda",
+        "count": 73,
+        "seasonality": 0.245
+      },
+      {
+        "dish": "rántott csirkemell",
+        "count": 62,
+        "seasonality": 0.205
+      },
+      {
+        "dish": "sertéspörkölt",
+        "count": 57,
+        "seasonality": 0.169
       },
       {
         "dish": "gyros tál",
-        "count": 43,
-        "seasonality": 0.201
+        "count": 56,
+        "seasonality": 0.156
+      },
+      {
+        "dish": "paradicsomleves",
+        "count": 54,
+        "seasonality": 0.21
+      },
+      {
+        "dish": "Bacon, sajt vagy csibe burger",
+        "count": 45,
+        "seasonality": 0.118
       }
     ],
     "tavasz": [
       {
         "dish": "roston csirkemell",
-        "count": 211,
-        "seasonality": 0.179
-      },
-      {
-        "dish": "gyümölcsleves",
-        "count": 204,
-        "seasonality": 0.15
+        "count": 233,
+        "seasonality": 0.147
       },
       {
         "dish": "rizibizi",
-        "count": 186,
-        "seasonality": 0.196
+        "count": 180,
+        "seasonality": 0.21
       },
       {
         "dish": "burgonyapüré",
         "count": 179,
-        "seasonality": 0.19
-      },
-      {
-        "dish": "hasábburgonya",
-        "count": 158,
-        "seasonality": 0.196
-      },
-      {
-        "dish": "Kínálatunkat ITT találja",
-        "count": 158,
-        "seasonality": 0.326
-      },
-      {
-        "dish": "galuska",
-        "count": 149,
-        "seasonality": 0.28
-      },
-      {
-        "dish": "csontleves",
-        "count": 146,
-        "seasonality": 0.36
-      },
-      {
-        "dish": "rántott csirkemell",
-        "count": 139,
-        "seasonality": 0.389
-      },
-      {
-        "dish": "rántott sajt",
-        "count": 134,
-        "seasonality": 0.287
-      },
-      {
-        "dish": "húsleves",
-        "count": 129,
-        "seasonality": 0.212
-      },
-      {
-        "dish": "petrezselymes burgonya",
-        "count": 120,
-        "seasonality": 0.221
-      },
-      {
-        "dish": "bolognai spagetti",
-        "count": 97,
-        "seasonality": 0.249
-      },
-      {
-        "dish": "zöldségleves",
-        "count": 89,
-        "seasonality": 0.176
-      },
-      {
-        "dish": "fasírozott",
-        "count": 68,
-        "seasonality": 0.198
-      },
-      {
-        "dish": "milánói sertésborda",
-        "count": 58,
-        "seasonality": 0.192
-      },
-      {
-        "dish": "Lebbencsleves",
-        "count": 55,
-        "seasonality": 0.195
-      },
-      {
-        "dish": "sertéspörkölt",
-        "count": 55,
-        "seasonality": 0.278
-      },
-      {
-        "dish": "gyros tál",
-        "count": 52,
-        "seasonality": 0.201
-      },
-      {
-        "dish": "paradicsomleves",
-        "count": 43,
-        "seasonality": 0.227
-      }
-    ],
-    "nyár": [
-      {
-        "dish": "rizibizi",
-        "count": 172,
-        "seasonality": 0.196
+        "seasonality": 0.193
       },
       {
         "dish": "gyümölcsleves",
         "count": 167,
-        "seasonality": 0.15
-      },
-      {
-        "dish": "roston csirkemell",
-        "count": 152,
-        "seasonality": 0.179
-      },
-      {
-        "dish": "rántott sajt",
-        "count": 140,
-        "seasonality": 0.287
-      },
-      {
-        "dish": "burgonyapüré",
-        "count": 124,
-        "seasonality": 0.19
-      },
-      {
-        "dish": "hasábburgonya",
-        "count": 114,
-        "seasonality": 0.196
+        "seasonality": 0.112
       },
       {
         "dish": "galuska",
-        "count": 108,
-        "seasonality": 0.28
+        "count": 143,
+        "seasonality": 0.202
       },
       {
-        "dish": "petrezselymes burgonya",
-        "count": 102,
-        "seasonality": 0.221
+        "dish": "hasábburgonya",
+        "count": 126,
+        "seasonality": 0.146
       },
       {
         "dish": "húsleves",
-        "count": 95,
-        "seasonality": 0.212
+        "count": 118,
+        "seasonality": 0.169
       },
       {
-        "dish": "Kínálatunkat ITT találja",
-        "count": 92,
-        "seasonality": 0.326
+        "dish": "rántott sajt",
+        "count": 106,
+        "seasonality": 0.314
       },
       {
         "dish": "csontleves",
-        "count": 87,
-        "seasonality": 0.36
+        "count": 106,
+        "seasonality": 0.193
+      },
+      {
+        "dish": "petrezselymes burgonya",
+        "count": 101,
+        "seasonality": 0.219
       },
       {
         "dish": "zöldségleves",
-        "count": 83,
-        "seasonality": 0.176
+        "count": 93,
+        "seasonality": 0.196
+      },
+      {
+        "dish": "bolognai spagetti",
+        "count": 82,
+        "seasonality": 0.251
+      },
+      {
+        "dish": "fasírozott",
+        "count": 75,
+        "seasonality": 0.168
+      },
+      {
+        "dish": "Lebbencsleves",
+        "count": 63,
+        "seasonality": 0.185
+      },
+      {
+        "dish": "sertéspörkölt",
+        "count": 59,
+        "seasonality": 0.169
+      },
+      {
+        "dish": "gyros tál",
+        "count": 57,
+        "seasonality": 0.156
+      },
+      {
+        "dish": "milánói sertésborda",
+        "count": 55,
+        "seasonality": 0.245
+      },
+      {
+        "dish": "rántott csirkemell",
+        "count": 55,
+        "seasonality": 0.205
+      },
+      {
+        "dish": "paradicsomleves",
+        "count": 47,
+        "seasonality": 0.21
+      },
+      {
+        "dish": "Tojásleves",
+        "count": 45,
+        "seasonality": 0.253
+      }
+    ],
+    "nyár": [
+      {
+        "dish": "roston csirkemell",
+        "count": 211,
+        "seasonality": 0.147
+      },
+      {
+        "dish": "rizibizi",
+        "count": 201,
+        "seasonality": 0.21
+      },
+      {
+        "dish": "gyümölcsleves",
+        "count": 161,
+        "seasonality": 0.112
+      },
+      {
+        "dish": "burgonyapüré",
+        "count": 146,
+        "seasonality": 0.193
+      },
+      {
+        "dish": "galuska",
+        "count": 126,
+        "seasonality": 0.202
+      },
+      {
+        "dish": "rántott sajt",
+        "count": 126,
+        "seasonality": 0.314
+      },
+      {
+        "dish": "hasábburgonya",
+        "count": 116,
+        "seasonality": 0.146
+      },
+      {
+        "dish": "zöldségleves",
+        "count": 106,
+        "seasonality": 0.196
+      },
+      {
+        "dish": "húsleves",
+        "count": 97,
+        "seasonality": 0.169
+      },
+      {
+        "dish": "petrezselymes burgonya",
+        "count": 95,
+        "seasonality": 0.219
+      },
+      {
+        "dish": "csontleves",
+        "count": 88,
+        "seasonality": 0.193
       },
       {
         "dish": "bolognai spagetti",
         "count": 81,
-        "seasonality": 0.249
-      },
-      {
-        "dish": "rántott csirkemell",
-        "count": 71,
-        "seasonality": 0.389
+        "seasonality": 0.251
       },
       {
         "dish": "fasírozott",
-        "count": 52,
-        "seasonality": 0.198
-      },
-      {
-        "dish": "milánói sertésborda",
-        "count": 48,
-        "seasonality": 0.192
-      },
-      {
-        "dish": "sertéspörkölt",
-        "count": 46,
-        "seasonality": 0.278
+        "count": 66,
+        "seasonality": 0.168
       },
       {
         "dish": "Lebbencsleves",
-        "count": 45,
-        "seasonality": 0.195
+        "count": 59,
+        "seasonality": 0.185
       },
       {
-        "dish": "paradicsomleves",
-        "count": 44,
-        "seasonality": 0.227
+        "dish": "rántott csirkemell",
+        "count": 54,
+        "seasonality": 0.205
+      },
+      {
+        "dish": "sertéspörkölt",
+        "count": 53,
+        "seasonality": 0.169
+      },
+      {
+        "dish": "milánói sertésborda",
+        "count": 50,
+        "seasonality": 0.245
       },
       {
         "dish": "gyros tál",
-        "count": 42,
-        "seasonality": 0.201
+        "count": 50,
+        "seasonality": 0.156
+      },
+      {
+        "dish": "paradicsomleves",
+        "count": 40,
+        "seasonality": 0.21
+      },
+      {
+        "dish": "Gulyásleves",
+        "count": 40,
+        "seasonality": 0.114
       }
     ],
     "ősz": [
       {
-        "dish": "burgonyapüré",
-        "count": 169,
-        "seasonality": 0.19
-      },
-      {
         "dish": "roston csirkemell",
-        "count": 166,
-        "seasonality": 0.179
+        "count": 234,
+        "seasonality": 0.147
       },
       {
-        "dish": "gyümölcsleves",
-        "count": 156,
-        "seasonality": 0.15
+        "dish": "burgonyapüré",
+        "count": 178,
+        "seasonality": 0.193
       },
       {
         "dish": "rizibizi",
-        "count": 137,
-        "seasonality": 0.196
+        "count": 152,
+        "seasonality": 0.21
       },
       {
-        "dish": "hasábburgonya",
-        "count": 122,
-        "seasonality": 0.196
+        "dish": "gyümölcsleves",
+        "count": 142,
+        "seasonality": 0.112
       },
       {
         "dish": "galuska",
-        "count": 102,
-        "seasonality": 0.28
+        "count": 123,
+        "seasonality": 0.202
       },
       {
-        "dish": "csontleves",
-        "count": 102,
-        "seasonality": 0.36
-      },
-      {
-        "dish": "rántott sajt",
-        "count": 99,
-        "seasonality": 0.287
+        "dish": "hasábburgonya",
+        "count": 118,
+        "seasonality": 0.146
       },
       {
         "dish": "zöldségleves",
-        "count": 89,
-        "seasonality": 0.176
+        "count": 110,
+        "seasonality": 0.196
       },
       {
         "dish": "húsleves",
-        "count": 85,
-        "seasonality": 0.212
+        "count": 104,
+        "seasonality": 0.169
       },
       {
         "dish": "petrezselymes burgonya",
-        "count": 84,
-        "seasonality": 0.221
+        "count": 89,
+        "seasonality": 0.219
       },
       {
-        "dish": "Kínálatunkat ITT találja",
-        "count": 78,
-        "seasonality": 0.326
+        "dish": "rántott sajt",
+        "count": 80,
+        "seasonality": 0.314
+      },
+      {
+        "dish": "csontleves",
+        "count": 79,
+        "seasonality": 0.193
       },
       {
         "dish": "bolognai spagetti",
-        "count": 74,
-        "seasonality": 0.249
-      },
-      {
-        "dish": "rántott csirkemell",
-        "count": 68,
-        "seasonality": 0.389
-      },
-      {
-        "dish": "milánói sertésborda",
-        "count": 65,
-        "seasonality": 0.192
+        "count": 73,
+        "seasonality": 0.251
       },
       {
         "dish": "fasírozott",
-        "count": 51,
-        "seasonality": 0.198
+        "count": 70,
+        "seasonality": 0.168
+      },
+      {
+        "dish": "milánói sertésborda",
+        "count": 70,
+        "seasonality": 0.245
       },
       {
         "dish": "Lebbencsleves",
-        "count": 46,
-        "seasonality": 0.195
+        "count": 65,
+        "seasonality": 0.185
+      },
+      {
+        "dish": "rántott csirkemell",
+        "count": 64,
+        "seasonality": 0.205
       },
       {
         "dish": "gyros tál",
-        "count": 45,
-        "seasonality": 0.201
+        "count": 60,
+        "seasonality": 0.156
       },
       {
         "dish": "sertéspörkölt",
-        "count": 41,
-        "seasonality": 0.278
+        "count": 54,
+        "seasonality": 0.169
       },
       {
         "dish": "paradicsomleves",
-        "count": 37,
-        "seasonality": 0.227
+        "count": 45,
+        "seasonality": 0.21
+      },
+      {
+        "dish": "Tojásleves",
+        "count": 44,
+        "seasonality": 0.253
       }
     ]
   },
   "most_seasonal": [
     {
-      "dish": "Nyitás február 15.-én",
-      "peak_season": "tél",
-      "peak_month": 2,
-      "seasonality_index": 2.47,
-      "total": 35
-    },
-    {
-      "dish": "Megértésüket köszönjük",
-      "peak_season": "tél",
-      "peak_month": 2,
-      "seasonality_index": 2.058,
-      "total": 40
-    },
-    {
-      "dish": "Marhagulyás + Barackos - túrós palacsinta",
-      "peak_season": "tavasz",
-      "peak_month": 3,
-      "seasonality_index": 1.732,
-      "total": 21
-    },
-    {
-      "dish": "Leves + Garnélás - tejszínes spagetti",
-      "peak_season": "tavasz",
-      "peak_month": 3,
-      "seasonality_index": 1.635,
-      "total": 21
-    },
-    {
-      "dish": "Kedves vendégeink",
-      "peak_season": "tél",
-      "peak_month": 2,
-      "seasonality_index": 1.6,
-      "total": 52
-    },
-    {
-      "dish": "Leves + Éhes gumis kedvence",
-      "peak_season": "tavasz",
-      "peak_month": 4,
-      "seasonality_index": 1.517,
-      "total": 20
+      "dish": "Sütőtök krémleves",
+      "peak_season": "ősz",
+      "peak_month": 11,
+      "seasonality_index": 1.11,
+      "total": 22
     },
     {
       "dish": "Tejszínes - gombás csirkemell tésztával",
       "peak_season": "tavasz",
       "peak_month": 5,
-      "seasonality_index": 1.123,
-      "total": 31
+      "seasonality_index": 1.108,
+      "total": 32
     },
     {
-      "dish": "Sertéskaraj vadasan, tészta",
-      "peak_season": "tél",
-      "peak_month": 1,
-      "seasonality_index": 1.075,
-      "total": 29
+      "dish": "Rántott sertésszelet, vegyes köret, saláta",
+      "peak_season": "ősz",
+      "peak_month": 9,
+      "seasonality_index": 1.047,
+      "total": 21
     },
     {
       "dish": "Párizsi sertés szelet, vegyes köret, saláta",
       "peak_season": "tavasz",
       "peak_month": 3,
+      "seasonality_index": 1.045,
+      "total": 25
+    },
+    {
+      "dish": "Szemes bableves",
+      "peak_season": "tavasz",
+      "peak_month": 3,
       "seasonality_index": 1.02,
+      "total": 21
+    },
+    {
+      "dish": "Lencsekrém leves",
+      "peak_season": "tél",
+      "peak_month": 2,
+      "seasonality_index": 0.959,
       "total": 20
     },
     {
-      "dish": "bécsi szelet",
+      "dish": "Csikós tokány galuskával, saláta",
       "peak_season": "tél",
       "peak_month": 2,
-      "seasonality_index": 0.927,
-      "total": 20
+      "seasonality_index": 0.907,
+      "total": 21
     },
     {
       "dish": "Töltött paprika",
       "peak_season": "nyár",
       "peak_month": 7,
-      "seasonality_index": 0.88,
-      "total": 26
+      "seasonality_index": 0.887,
+      "total": 30
     },
     {
-      "dish": "Mákos guba",
-      "peak_season": "ősz",
-      "peak_month": 11,
-      "seasonality_index": 0.787,
-      "total": 20
-    },
-    {
-      "dish": "Zöldborsós sertés tokány galuskával, saláta",
+      "dish": "Pacalpörkölt, sósburgonya",
       "peak_season": "tél",
-      "peak_month": 1,
-      "seasonality_index": 0.778,
-      "total": 21
+      "peak_month": 2,
+      "seasonality_index": 0.842,
+      "total": 24
+    },
+    {
+      "dish": "Marhapörkölt galuskával",
+      "peak_season": "ősz",
+      "peak_month": 10,
+      "seasonality_index": 0.827,
+      "total": 28
     },
     {
       "dish": "Tejfölös burgonyaleves",
       "peak_season": "tavasz",
       "peak_month": 4,
-      "seasonality_index": 0.766,
-      "total": 22
+      "seasonality_index": 0.808,
+      "total": 28
     },
     {
-      "dish": "Húsgombócleves",
-      "peak_season": "tavasz",
-      "peak_month": 4,
-      "seasonality_index": 0.766,
-      "total": 22
+      "dish": "Sertéskaraj vadasan, tészta",
+      "peak_season": "tél",
+      "peak_month": 1,
+      "seasonality_index": 0.785,
+      "total": 43
     },
     {
-      "dish": ":2300ft Leves: 990ft Második:",
-      "peak_season": "tavasz",
-      "peak_month": 3,
-      "seasonality_index": 0.761,
-      "total": 62
+      "dish": "Rántott sertés szelet, vegyes köret, saláta",
+      "peak_season": "tél",
+      "peak_month": 12,
+      "seasonality_index": 0.759,
+      "total": 75
     },
     {
-      "dish": "Fokhagyma krémleves",
+      "dish": "Rakott burgonya, saláta",
+      "peak_season": "tél",
+      "peak_month": 1,
+      "seasonality_index": 0.752,
+      "total": 23
+    },
+    {
+      "dish": "Zöldborsós sertés tokány galuskával, saláta",
       "peak_season": "tél",
       "peak_month": 2,
       "seasonality_index": 0.751,
       "total": 27
     },
     {
-      "dish": "Rántott sertés szelet, vegyes köret, saláta",
-      "peak_season": "tél",
-      "peak_month": 12,
-      "seasonality_index": 0.75,
-      "total": 58
-    },
-    {
-      "dish": "Borsos tokány galuskával, saláta",
-      "peak_season": "tél",
-      "peak_month": 2,
-      "seasonality_index": 0.748,
-      "total": 20
-    },
-    {
-      "dish": "Bácskai rizses hús",
+      "dish": "Gölődinleves",
       "peak_season": "ősz",
       "peak_month": 11,
-      "seasonality_index": 0.736,
-      "total": 24
+      "seasonality_index": 0.742,
+      "total": 21
     },
     {
-      "dish": "Pulykapörkölt tésztával, saláta",
+      "dish": "Csirkebecsinált leves",
+      "peak_season": "tavasz",
+      "peak_month": 3,
+      "seasonality_index": 0.742,
+      "total": 21
+    },
+    {
+      "dish": "Krumplis tészta",
+      "peak_season": "ősz",
+      "peak_month": 11,
+      "seasonality_index": 0.723,
+      "total": 54
+    },
+    {
+      "dish": "Falusi csirkeleves",
       "peak_season": "tél",
       "peak_month": 2,
       "seasonality_index": 0.707,
       "total": 20
     },
     {
-      "dish": "Hamis gulyásleves",
-      "peak_season": "ősz",
-      "peak_month": 11,
-      "seasonality_index": 0.688,
-      "total": 43
+      "dish": "Zúzapörkölt tarhonyával, saláta",
+      "peak_season": "nyár",
+      "peak_month": 7,
+      "seasonality_index": 0.705,
+      "total": 21
     },
     {
-      "dish": "Zellerkrémleves",
+      "dish": "Húsgombócleves",
+      "peak_season": "tavasz",
+      "peak_month": 4,
+      "seasonality_index": 0.701,
+      "total": 26
+    },
+    {
+      "dish": "Bácskai rizseshús",
+      "peak_season": "tavasz",
+      "peak_month": 3,
+      "seasonality_index": 0.701,
+      "total": 26
+    },
+    {
+      "dish": "Pulykapörkölt tésztával, saláta",
+      "peak_season": "tél",
+      "peak_month": 2,
+      "seasonality_index": 0.692,
+      "total": 25
+    },
+    {
+      "dish": "Bácskai rizses hús",
+      "peak_season": "ősz",
+      "peak_month": 11,
+      "seasonality_index": 0.682,
+      "total": 27
+    },
+    {
+      "dish": "Burgonyagombóc leves",
       "peak_season": "tél",
       "peak_month": 1,
+      "seasonality_index": 0.675,
+      "total": 26
+    },
+    {
+      "dish": "Borsos tokány galuskával, saláta",
+      "peak_season": "tél",
+      "peak_month": 2,
+      "seasonality_index": 0.675,
+      "total": 26
+    },
+    {
+      "dish": "Gölődin leves",
+      "peak_season": "tavasz",
+      "peak_month": 3,
+      "seasonality_index": 0.663,
+      "total": 20
+    },
+    {
+      "dish": "Körömpörkölt, sósburgonyával",
+      "peak_season": "nyár",
+      "peak_month": 7,
       "seasonality_index": 0.662,
       "total": 22
     },
     {
-      "dish": "Krumplis tészta",
+      "dish": "Fokhagyma krémleves",
       "peak_season": "tél",
       "peak_month": 2,
-      "seasonality_index": 0.648,
-      "total": 35
-    },
-    {
-      "dish": "Rizsleves",
-      "peak_season": "tél",
-      "peak_month": 2,
-      "seasonality_index": 0.634,
-      "total": 25
-    },
-    {
-      "dish": "Töltött káposzta",
-      "peak_season": "tél",
-      "peak_month": 12,
-      "seasonality_index": 0.627,
-      "total": 52
+      "seasonality_index": 0.653,
+      "total": 36
     },
     {
       "dish": "Zúzapörkölt tarhonyával",
       "peak_season": "tél",
       "peak_month": 2,
-      "seasonality_index": 0.623,
-      "total": 22
-    },
-    {
-      "dish": "Gombaleves",
-      "peak_season": "tavasz",
-      "peak_month": 4,
-      "seasonality_index": 0.621,
-      "total": 31
-    },
-    {
-      "dish": "Borsos tokány tészta",
-      "peak_season": "ősz",
-      "peak_month": 11,
-      "seasonality_index": 0.616,
-      "total": 20
-    },
-    {
-      "dish": "Szaggatott tésztaleves",
-      "peak_season": "tél",
-      "peak_month": 2,
-      "seasonality_index": 0.616,
-      "total": 20
+      "seasonality_index": 0.648,
+      "total": 26
     }
   ]
 }
