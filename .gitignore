@@ -1,3 +1,6 @@
 venv/
 __pycache__/
 *.pyc
+
+# Local archive of superseded pipeline versions — not part of the repo
+old/
