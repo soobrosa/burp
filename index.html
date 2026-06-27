@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>burp — a corpus of business-lunch menus</title>
+<style>
+:root{
+  --bg:#f4f3f1; --paper:#fbfaf8; --ink:#15140f; --mut:#76726a; --faint:#9a968d;
+  --line:#d9d6cf; --line2:#c7c3ba; --bar:#1b1a16; --bar2:#cfccc4;
+  --shadow:0 1px 0 rgba(0,0,0,.03);
+}
+html[data-theme="dark"]{
+  --bg:#0c0c0b; --paper:#141413; --ink:#eceae4; --mut:#8f8c84; --faint:#615e58;
+  --line:#262521; --line2:#34322d; --bar:#ecebe5; --bar2:#3a3833;
+  --shadow:none;
+}
+*{box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  transition:background .35s ease,color .35s ease;
+}
+.mono{font-family:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;font-variant-numeric:tabular-nums}
+.wrap{max-width:980px;margin:0 auto;padding:0 24px}
+a{color:inherit}
+hr.rule{border:0;border-top:1px solid var(--line);margin:0}
+
+/* chapter navigator */
+.chapnav{position:fixed;left:max(14px,calc(50vw - 545px));top:50%;transform:translateY(-50%);
+  display:flex;flex-direction:column;gap:1px;z-index:30}
+.chapnav a{font-family:ui-monospace,monospace;font-size:11px;color:var(--faint);text-decoration:none;
+  padding:7px 9px;border-left:2px solid transparent;letter-spacing:.06em;transition:color .2s,border-color .2s,background .2s}
+.chapnav a:hover{color:var(--ink)}
+.chapnav a.active{color:var(--ink);border-left-color:var(--ink);font-weight:600}
+@media (max-width:1180px){.chapnav{display:none}}
+
+/* header */
+header{border-bottom:1px solid var(--ink);}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:18px 0 14px}
+.brand{display:flex;align-items:baseline;gap:14px}
+.logo{font-family:Georgia,"Times New Roman",serif;font-size:40px;font-weight:700;letter-spacing:-.02em;line-height:1}
+.kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--mut)}
+.toggle{cursor:pointer;border:1px solid var(--line2);background:var(--paper);color:var(--ink);
+  font:inherit;font-size:12px;letter-spacing:.06em;padding:7px 12px;border-radius:2px;
+  display:inline-flex;align-items:center;gap:8px;transition:border-color .2s,background .2s}
+.toggle:hover{border-color:var(--ink)}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--ink);display:inline-block}
+.lede{font-family:Georgia,serif;font-size:19px;line-height:1.5;max-width:60ch;color:var(--ink);
+  padding:6px 0 22px;font-weight:400}
+.lede em{color:var(--mut);font-style:italic}
+
+/* stat strip */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.stat{padding:16px 18px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat .num{font-family:Georgia,serif;font-size:27px;line-height:1;letter-spacing:-.01em}
+.stat .lab{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-top:7px}
+
+/* sections */
+section{padding:46px 0}
+.sec-h{display:flex;align-items:baseline;gap:14px;margin:0 0 4px}
+.sec-n{font-family:ui-monospace,monospace;font-size:12px;color:var(--faint);width:26px;flex:none}
+h2{font-family:Georgia,serif;font-weight:700;font-size:24px;letter-spacing:-.01em;margin:0}
+.sec-sub{color:var(--mut);font-size:14px;margin:6px 0 26px;padding-left:40px;max-width:64ch}
+
+/* distribution charts */
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:34px 48px;padding-left:40px}
+.chart h3{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin:0 0 14px;font-weight:600}
+.chart.wide{grid-column:1 / -1}
+.brow{display:grid;grid-template-columns:118px 1fr 56px;align-items:center;gap:12px;margin:9px 0}
+.brow .bname{font-size:13px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btrack{height:14px;background:var(--bar2);position:relative;border-radius:1px;overflow:hidden}
+.bfill{height:100%;background:var(--bar);width:0;transition:width 1.1s cubic-bezier(.16,1,.3,1)}
+.bval{text-align:right;font-size:12.5px;color:var(--mut)}
+.brow:hover .bname{color:var(--ink)}
+.brow:hover .bval{color:var(--ink)}
+
+/* hierarchy stacked bar */
+.hier{padding-left:40px}
+.stack{display:flex;height:46px;border:1px solid var(--ink);border-radius:2px;overflow:hidden;cursor:default}
+.seg{position:relative;border-right:1px solid var(--bg);display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:11px;letter-spacing:.04em;transition:filter .2s;min-width:0;overflow:hidden}
+html[data-theme="dark"] .seg{color:#0c0c0b}
+.seg:last-child{border-right:0}
+.seg:hover{filter:invert(.12)}
+.seg.s0{background:var(--bar)}
+.seg.s1{background:#5b5852}
+.seg.s2{background:#928e85}
+.seg.s3{background:#c2bfb6;color:var(--ink)}
+html[data-theme="dark"] .seg.s1{background:#b8b5ad}
+html[data-theme="dark"] .seg.s2{background:#74716a}
+html[data-theme="dark"] .seg.s3{background:#403e39;color:var(--ink)}
+.hlegend{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px}
+.hl .ht{font-family:Georgia,serif;font-size:16px}
+.hl .hr{font-size:12px;color:var(--mut);margin-top:2px}
+.hl .hd{font-size:12.5px;color:var(--ink);margin-top:8px;border-top:1px solid var(--line);padding-top:8px}
+.hl .hd b{font-weight:700}
+
+/* explorer */
+.controls{padding-left:40px;margin-bottom:22px}
+.searchrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.search{flex:1;min-width:200px;display:flex;align-items:center;border:1px solid var(--line2);background:var(--paper);border-radius:2px;padding:0 12px}
+.search:focus-within{border-color:var(--ink)}
+.search input{border:0;outline:0;background:transparent;color:var(--ink);font:inherit;font-size:14px;padding:11px 8px;width:100%}
+.search .ic{color:var(--faint);font-size:14px}
+.sortsel{border:1px solid var(--line2);background:var(--paper);color:var(--ink);font:inherit;font-size:13px;padding:10px 12px;border-radius:2px;cursor:pointer}
+.chips{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.chips .grp-lab{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-right:2px}
+.chip{cursor:pointer;border:1px solid var(--line2);background:transparent;color:var(--mut);
+  font:inherit;font-size:12.5px;padding:6px 11px;border-radius:14px;transition:all .15s;white-space:nowrap}
+.chip:hover{border-color:var(--ink);color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chipsline{display:flex;gap:18px;flex-wrap:wrap;margin-top:11px}
+
+.meta-line{padding-left:40px;font-size:12.5px;color:var(--mut);margin-bottom:6px;display:flex;justify-content:space-between;align-items:baseline}
+.tbl{padding-left:40px}
+.drow{display:grid;grid-template-columns:30px 1fr 92px 84px 64px;align-items:center;gap:14px;
+  padding:8px 0;border-top:1px solid var(--line);transition:background .12s}
+.drow:hover{background:color-mix(in srgb,var(--ink) 4%,transparent)}
+.drow .rk{font-family:ui-monospace,monospace;font-size:11px;color:var(--faint);text-align:right}
+.dn{min-width:0}
+.dn .nm{font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dn .dbar{height:5px;background:var(--bar);margin-top:5px;border-radius:1px;width:0;transition:width .5s ease}
+.tag{font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;border:1px solid var(--line2);
+  padding:3px 7px;border-radius:2px;color:var(--mut);text-align:center;white-space:nowrap}
+.tag.c-főétel{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.tag.c-leves{background:#8d8a82;color:#fff;border-color:#8d8a82}
+html[data-theme="dark"] .tag.c-leves{background:#76736c;color:#0c0c0b}
+.tag.c-főzelék{border-color:var(--ink);color:var(--ink)}
+.tag.c-desszert{border-style:dashed}
+.tag.empty{opacity:.4;border-style:dotted}
+.season{font-size:11px;color:var(--mut);text-align:center;white-space:nowrap}
+.season b{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:5px;vertical-align:middle;background:var(--mut)}
+.season.winter b{background:var(--ink)} .season.spring b{background:transparent;border:1px solid var(--mut)}
+.season.summer b{background:var(--faint)} .season.autumn b{background:#6c6962}
+.dc{font-family:ui-monospace,monospace;font-size:13.5px;text-align:right}
+.empty-state{padding:40px 0 10px;text-align:center;color:var(--mut);padding-left:40px}
+.pager{display:flex;align-items:center;justify-content:center;gap:16px;padding:20px 0 0;margin-left:40px}
+.pager button{cursor:pointer;border:1px solid var(--line2);background:transparent;color:var(--ink);
+  font:inherit;font-size:13px;padding:7px 14px;border-radius:2px;transition:border-color .15s,opacity .15s}
+.pager button:hover:not(:disabled){border-color:var(--ink)}
+.pager button:disabled{opacity:.3;cursor:default}
+.pager .pinfo{font-family:ui-monospace,monospace;font-size:12.5px;color:var(--mut);min-width:140px;text-align:center}
+
+/* seasonal */
+.seasons{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:2px;overflow:hidden;margin-left:40px}
+.scard{background:var(--paper);padding:18px 16px;cursor:pointer;transition:background .2s}
+.scard:hover{background:color-mix(in srgb,var(--ink) 5%,var(--paper))}
+.scard h4{margin:0;font-family:Georgia,serif;font-size:17px;display:flex;align-items:center;gap:8px}
+.scard .glyph{font-size:13px;color:var(--mut)}
+.scard .mo{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin:3px 0 13px}
+.scard ol{margin:0;padding:0;list-style:none;counter-reset:s}
+.scard li{font-size:12.5px;padding:5px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:8px}
+.scard li .sn{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.scard li .si{font-family:ui-monospace,monospace;color:var(--mut);flex:none}
+.scard .cta{font-size:11px;color:var(--faint);margin-top:12px;letter-spacing:.04em}
+
+/* notes / footer */
+.notes{padding-left:40px;max-width:72ch}
+.note{border-left:2px solid var(--ink);padding:2px 0 2px 16px;margin:0 0 18px;color:var(--mut);font-size:13.5px}
+.note b{color:var(--ink);font-weight:700}
+.pipe{padding-left:40px;display:grid;grid-template-columns:1fr 1fr;gap:0 40px;max-width:760px}
+.pstep{display:flex;gap:12px;padding:9px 0;border-top:1px solid var(--line);font-size:13px}
+.pstep .pi{font-family:ui-monospace,monospace;color:var(--faint);flex:none;width:18px}
+.pstep code{font-family:ui-monospace,monospace;font-size:12px;color:var(--ink);background:color-mix(in srgb,var(--ink) 6%,transparent);padding:1px 5px;border-radius:2px}
+footer{border-top:1px solid var(--ink);padding:26px 0 60px;color:var(--mut);font-size:12.5px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+@media (max-width:720px){
+  .charts{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .seasons,.hlegend{grid-template-columns:1fr 1fr}
+  .pipe{grid-template-columns:1fr}
+  .sec-sub,.controls,.tbl,.hier,.meta-line,.notes,.pipe{padding-left:0}
+  .seasons{margin-left:0}
+  .drow{grid-template-columns:24px 1fr 70px 56px}
+  .drow .season{display:none}
+}
+</style>
+</head>
+<body>
+<nav class="chapnav" aria-label="Chapters">
+  <a href="#dist" data-t="dist" title="What's on the menu">01</a>
+  <a href="#hier" data-t="hier" title="A three-tier menu">02</a>
+  <a href="#explore" data-t="explore" title="Dish explorer">03</a>
+  <a href="#seasonal" data-t="seasonal" title="Seasonal swings">04</a>
+  <a href="#notes" data-t="notes" title="Data notes &amp; pipeline">05</a>
+</nav>
+<header>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <span class="logo">burp</span>
+        <span class="kicker">a menu corpus &mdash; Kiskunfélegyháza</span>
+      </div>
+      <button class="toggle" id="themeBtn" aria-label="Toggle theme"><span class="dot"></span><span id="themeLab">Dark</span></button>
+    </div>
+    <p class="lede">Three and a half years of Hungarian business-lunch menus, scraped weekly and run through a cleaning, lemmatizing, categorizing and seasonal-analysis pipeline. <em>What does a small town actually eat for lunch?</em></p>
+    <div class="stats">
+      <div class="stat"><div class="num mono">51,200</div><div class="lab">menu rows</div></div>
+      <div class="stat"><div class="num mono">5,050</div><div class="lab">unique dishes</div></div>
+      <div class="stat"><div class="num mono">31,489</div><div class="lab">resolved occurrences</div></div>
+      <div class="stat"><div class="num" style="line-height:1.12">Nov 2022&nbsp;&ndash;<br>Apr 2026</div><div class="lab">coverage</div></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<section id="dist">
+  <div class="sec-h"><span class="sec-n">01</span><h2>What's on the menu</h2></div>
+  <p class="sec-sub">Distribution across unique dishes, as tagged by the categorizer. Most dishes are a main course, and frying (<em>rántott</em>) is the single most common technique.</p>
+  <div class="charts">
+    <div class="chart"><h3>Course</h3><div id="ch-course"></div></div>
+    <div class="chart"><h3>Protein</h3><div id="ch-protein"></div></div>
+    <div class="chart wide"><h3>Cooking method</h3><div id="ch-method"></div></div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section id="hier">
+  <div class="sec-h"><span class="sec-n">02</span><h2>A three-tier menu</h2></div>
+  <p class="sec-sub">Dishes split at natural breaks in the frequency distribution. A handful of staples carry most of the weight; thousands of one-off specials form a long tail. Bar widths are proportional to total occurrences.</p>
+  <div class="hier">
+    <div class="stack" id="stack"></div>
+    <div class="hlegend" id="hlegend"></div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section id="explore">
+  <div class="sec-h"><span class="sec-n">03</span><h2>Dish explorer</h2></div>
+  <p class="sec-sub">Every dish appearing at least 10 times (321 in all). Search, filter by course, season or tier, and re-sort. Bars rescale to the current view.</p>
+  <div class="controls">
+    <div class="searchrow">
+      <label class="search"><span class="ic">⌕</span><input id="q" type="search" placeholder="Search dishes… (e.g. leves, rántott, tokány)" autocomplete="off"></label>
+      <select class="sortsel" id="sort">
+        <option value="count">Sort: most frequent</option>
+        <option value="name">Sort: A → Z</option>
+        <option value="idx">Sort: most seasonal</option>
+      </select>
+    </div>
+    <div class="chipsline">
+      <div class="chips"><span class="grp-lab">Course</span><span id="f-course"></span></div>
+      <div class="chips"><span class="grp-lab">Season</span><span id="f-season"></span></div>
+      <div class="chips"><span class="grp-lab">Tier</span><span id="f-tier"></span></div>
+    </div>
+  </div>
+  <div class="meta-line"><span id="count"></span><span id="active" class="mono"></span></div>
+  <div class="tbl" id="rows"></div>
+  <div class="pager" id="pager"></div>
+  <div class="empty-state" id="empty" style="display:none">No dishes match these filters.</div>
+</section>
+
+<hr class="rule">
+
+<section id="seasonal">
+  <div class="sec-h"><span class="sec-n">04</span><h2>Seasonal swings</h2></div>
+  <p class="sec-sub">Dishes ranked by seasonality index (how concentrated they are in their peak month) among items with ≥50 occurrences — genuinely seasonal cooking, not year-round staples. Click a season to filter the explorer above.</p>
+  <div class="seasons" id="seasons"></div>
+</section>
+
+<hr class="rule">
+
+<section id="notes">
+  <div class="sec-h"><span class="sec-n">05</span><h2>Data notes &amp; pipeline</h2></div>
+  <p class="sec-sub">How the numbers are made, and the caveats worth knowing.</p>
+  <div class="notes">
+    <p class="note"><b>Coverage.</b> A weekly GitHub Action scrapes menu HTML; the analysis pipeline reprocesses the full corpus on demand. These figures run through 2026-04-05.</p>
+    <p class="note"><b>Menu boilerplate.</b> The newer site layout interleaves price lines, section headers and greetings into menu blocks. The cleaning step now filters these (~40 strings, ~1,600 occurrences) so they no longer rank as "dishes".</p>
+    <p class="note"><b>Categorizer quirks.</b> Course/protein tags are heuristic — <em>galuska</em> is sometimes filed as a soup, meat sides leak into <em>főzelék</em>. Per-dish protein/method are noisy and omitted here; the explorer relies on the more reliable course and season facets.</p>
+  </div>
+  <div class="pipe" id="pipe"></div>
+</section>
+
+</div>
+
+<footer>
+  <div class="wrap" style="display:flex;justify-content:space-between;width:100%;flex-wrap:wrap;gap:12px;padding:0">
+    <span>burp · business-lunch menu corpus · Kiskunfélegyháza</span>
+    <span class="mono">Nov 2022 – Apr 2026 · generated from dishes_resolved.csv</span>
+  </div>
+</footer>
+
+<script>
+const DISHES = [{"n":"gyümölcsleves","c":2268,"course":"leves","prot":"csirke","meth":"rántott","season":"spring","idx":0.11,"pm":3},{"n":"hasábburgonya","c":1232,"course":"főétel","prot":"sertés","meth":"sült","season":"spring","idx":0.15,"pm":3},{"n":"roston csirkemell","c":995,"course":"főétel","prot":"csirke","meth":"grillezett","season":"winter","idx":0.15,"pm":1},{"n":"rizibizi","c":938,"course":"főétel","prot":"csirke","meth":"rántott","season":"winter","idx":0.21,"pm":1},{"n":"burgonyapüré","c":886,"course":"főétel","prot":"sertés","meth":"rántott","season":"spring","idx":0.19,"pm":3},{"n":"galuska","c":674,"course":"főétel","prot":"vegetáriánus","meth":"pörkölt","season":"spring","idx":0.2,"pm":3},{"n":"csontleves","c":642,"course":"leves","prot":"vegetáriánus","meth":"párolt","season":"winter","idx":0.19,"pm":12},{"n":"rántott csirkemell","c":632,"course":"főétel","prot":"csirke","meth":"rántott","season":"autumn","idx":0.2,"pm":11},{"n":"rántott sajt","c":630,"course":"főétel","prot":"vegetáriánus","meth":"rántott,párolt","season":"winter","idx":0.31,"pm":12},{"n":"húsleves","c":593,"course":"leves","prot":"marha","meth":"rántott","season":"spring","idx":0.17,"pm":3},{"n":"petrezselymes burgonya","c":583,"course":"főétel","prot":"sertés","meth":"rántott","season":"winter","idx":0.22,"pm":12},{"n":"zöldségleves","c":467,"course":"leves","prot":"vegetáriánus","meth":"","season":"autumn","idx":0.2,"pm":11},{"n":"bolognai spagetti","c":386,"course":"főétel","prot":"sertés","meth":"rakott","season":"autumn","idx":0.25,"pm":11},{"n":"fasírozott","c":352,"course":"főzelék","prot":"vegetáriánus","meth":"fasírozott","season":"winter","idx":0.17,"pm":1},{"n":"milánói sertésborda","c":290,"course":"főétel","prot":"sertés","meth":"milánói","season":"winter","idx":0.24,"pm":1},{"n":"lebbencsleves","c":269,"course":"leves","prot":"","meth":"","season":"autumn","idx":0.18,"pm":11},{"n":"sertéspörkölt","c":252,"course":"főzelék","prot":"sertés","meth":"pörkölt","season":"spring","idx":0.17,"pm":3},{"n":"gyros tál","c":238,"course":"főétel","prot":"csirke","meth":"sült","season":"spring","idx":0.16,"pm":5},{"n":"paradicsomleves","c":213,"course":"leves","prot":"vegetáriánus","meth":"pirított","season":"spring","idx":0.21,"pm":3},{"n":"túrós csusza","c":211,"course":"főétel","prot":"vegetáriánus","meth":"sült","season":"winter","idx":0.34,"pm":1},{"n":"tojásleves","c":172,"course":"leves","prot":"vegetáriánus","meth":"","season":"winter","idx":0.25,"pm":1},{"n":"bacon, sajt vagy csibe burger","c":169,"course":"főétel","prot":"csirke,sertés","meth":"","season":"spring","idx":0.12,"pm":3},{"n":"csirkepörkölt","c":162,"course":"főétel","prot":"csirke","meth":"pörkölt","season":"autumn","idx":0.23,"pm":11},{"n":"orjaleves","c":155,"course":"leves","prot":"","meth":"","season":"winter","idx":0.16,"pm":2},{"n":"tarhonyaleves","c":154,"course":"leves","prot":"","meth":"","season":"winter","idx":0.26,"pm":2},{"n":"káposztás tészta","c":153,"course":"főétel","prot":"marha","meth":"sült","season":"winter","idx":0.37,"pm":2},{"n":"gulyásleves","c":150,"course":"leves","prot":"marha","meth":"","season":"spring","idx":0.11,"pm":3},{"n":"frankfurti leves","c":140,"course":"leves","prot":"","meth":"","season":"winter","idx":0.35,"pm":2},{"n":"székelykáposzta","c":140,"course":"főétel","prot":"","meth":"","season":"winter","idx":0.23,"pm":12},{"n":"savanyúság","c":138,"course":"főétel","prot":"sertés","meth":"pörkölt","season":"spring","idx":0.26,"pm":3},{"n":"zöldborsóleves","c":136,"course":"leves","prot":"","meth":"","season":"summer","idx":0.25,"pm":6},{"n":"brokkoli krémleves","c":125,"course":"leves","prot":"vegetáriánus","meth":"","season":"spring","idx":0.25,"pm":3},{"n":"máglyarakás","c":123,"course":"desszert","prot":"","meth":"","season":"autumn","idx":0.35,"pm":11},{"n":"lasagne","c":121,"course":"főétel","prot":"","meth":"","season":"summer","idx":0.21,"pm":7},{"n":"rakott karfiol","c":120,"course":"főétel","prot":"vegetáriánus","meth":"rakott","season":"spring","idx":0.28,"pm":3},{"n":"zöldbableves","c":108,"course":"leves","prot":"","meth":"","season":"spring","idx":0.23,"pm":3},{"n":"paradicsomos húsgombóc","c":92,"course":"desszert","prot":"","meth":"","season":"winter","idx":0.43,"pm":12},{"n":"pecsenyeleves","c":92,"course":"leves","prot":"","meth":"","season":"autumn","idx":0.22,"pm":11},{"n":"brassói aprópecsenye","c":89,"course":"főétel","prot":"","meth":"","season":"autumn","idx":0.4,"pm":11},{"n":"májgombócleves","c":79,"course":"leves","prot":"","meth":"","season":"winter","idx":0.23,"pm":1},{"n":"karfiolleves","c":76,"course":"leves","prot":"vegetáriánus","meth":"","season":"winter","idx":0.21,"pm":2},{"n":"rántott sertés szelet, vegyes köret, saláta","c":75,"course":"főétel","prot":"sertés","meth":"rántott","season":"winter","idx":0.76,"pm":12},{"n":"rakott zöldbab","c":74,"course":"főétel","prot":"vegetáriánus","meth":"rakott","season":"autumn","idx":0.51,"pm":11},{"n":"paprikás krumpli","c":73,"course":"főétel","prot":"vegetáriánus","meth":"sült","season":"winter","idx":0.53,"pm":1},{"n":"babgulyás","c":71,"course":"leves","prot":"marha","meth":"","season":"winter","idx":0.31,"pm":1},{"n":"chilis bab","c":69,"course":"főétel","prot":"vegetáriánus","meth":"","season":"autumn","idx":0.33,"pm":11},{"n":"palócgulyás","c":69,"course":"főétel","prot":"marha","meth":"","season":"winter","idx":0.4,"pm":1},{"n":"jókai bableves","c":68,"course":"leves","prot":"","meth":"","season":"winter","idx":0.19,"pm":12},{"n":"tarhonyás hús","c":67,"course":"főétel","prot":"","meth":"","season":"winter","idx":0.49,"pm":12},{"n":"hentes tokány, tészta","c":66,"course":"főétel","prot":"","meth":"","season":"summer","idx":0.24,"pm":8},{"n":"húsgombóc leves","c":66,"course":"leves","prot":"","meth":"","season":"autumn","idx":0.39,"pm":11},{"n":"töltött káposzta","c":66,"course":"főétel","prot":"","meth":"töltött","season":"winter","idx":0.61,"pm":12},{"n":"carbonara spagetti","c":65,"course":"főétel","prot":"","meth":"","season":"spring","idx":0.55,"pm":3},{"n":"magyaros burgonyaleves","c":63,"course":"leves","prot":"","meth":"","season":"spring","idx":0.46,"pm":3},{"n":"sajttal - sonkával töltött szelet, rizzsel","c":63,"course":"főétel","prot":"sertés","meth":"töltött","season":"spring","idx":0.44,"pm":3},{"n":"sertés tokány galuskával, saláta","c":62,"course":"főétel","prot":"sertés","meth":"","season":"spring","idx":0.58,"pm":3},{"n":"stíriai metélt","c":62,"course":"főétel","prot":"","meth":"","season":"winter","idx":0.39,"pm":2},{"n":"fahéjas szilvaleves","c":61,"course":"leves","prot":"","meth":"","season":"summer","idx":0.42,"pm":7},{"n":"rakott burgonya","c":61,"course":"főétel","prot":"","meth":"rakott","season":"spring","idx":0.36,"pm":4},{"n":"lencseleves","c":59,"course":"leves","prot":"vegetáriánus","meth":"","season":"winter","idx":0.41,"pm":12},{"n":"krumplis tészta","c":58,"course":"főétel","prot":"vegetáriánus","meth":"","season":"autumn","idx":0.72,"pm":11},{"n":"pirított tésztaleves","c":58,"course":"leves","prot":"","meth":"pirított","season":"winter","idx":0.4,"pm":12},{"n":"erdélyi rakott káposzta","c":57,"course":"főétel","prot":"","meth":"rakott","season":"winter","idx":0.3,"pm":2},{"n":"legényfogó leves","c":56,"course":"leves","prot":"","meth":"","season":"spring","idx":0.32,"pm":3},{"n":"bundás kenyér","c":55,"course":"főétel","prot":"","meth":"bundás","season":"","idx":null,"pm":null},{"n":"hurka-kolbász","c":55,"course":"főétel","prot":"sertés","meth":"","season":"","idx":null,"pm":null},{"n":"monte cristo szendvics","c":55,"course":"főétel","prot":"","meth":"","season":"","idx":null,"pm":null},{"n":"rakott kelkáposzta","c":54,"course":"főétel","prot":"","meth":"rakott","season":"spring","idx":0.41,"pm":4},{"n":"korhelyleves","c":53,"course":"leves","prot":"","meth":"","season":"autumn","idx":0.58,"pm":11},{"n":"mákos tészta","c":53,"course":"főétel","prot":"","meth":"","season":"summer","idx":0.35,"pm":6},{"n":"szilvás gombóc","c":53,"course":"desszert","prot":"","meth":"","season":"spring","idx":0.4,"pm":3},{"n":"csirkeaprólék leves","c":51,"course":"leves","prot":"csirke","meth":"","season":"winter","idx":0.25,"pm":1},{"n":"hamis gulyásleves","c":51,"course":"leves","prot":"marha","meth":"","season":"autumn","idx":0.64,"pm":11},{"n":"sárgaborsó krémleves","c":49,"course":"leves","prot":"","meth":"","season":"autumn","idx":0.45,"pm":11},{"n":"borsos tokány tésztával","c":46,"course":"főétel","prot":"","meth":"","season":"autumn","idx":0.5,"pm":11},{"n":"sonkás kocka","c":46,"course":"főétel","prot":"","meth":"","season":"spring","idx":0.41,"pm":5},{"n":"brassói","c":45,"course":"főétel","prot":"","meth":"","season":"winter","idx":0.31,"pm":2},{"n":"sárgaborsóleves","c":44,"course":"leves","prot":"","meth":"","season":"winter","idx":0.48,"pm":12},{"n":"zúzapörkölt tésztával","c":44,"course":"főétel","prot":"","meth":"pörkölt","season":"spring","idx":0.45,"pm":5},{"n":"sertéskaraj vadasan, tészta","c":43,"course":"főétel","prot":"sertés","meth":"","season":"winter","idx":0.79,"pm":1},{"n":"csikós tokány, tészta","c":42,"course":"főétel","prot":"","meth":"","season":"summer","idx":0.51,"pm":6},{"n":"rizsfelfújt","c":42,"course":"főétel","prot":"","meth":"","season":"winter","idx":0.35,"pm":2},{"n":"tárkonyos raguleves","c":42,"course":"leves","prot":"","meth":"","season":"winter","idx":0.44,"pm":12},{"n":"burgonyaleves","c":41,"course":"leves","prot":"","meth":"","season":"winter","idx":0.54,"pm":1},{"n":"grízgombóc leves","c":41,"course":"leves","prot":"","meth":"","season":"winter","idx":0.54,"pm":1},{"n":"tejszínes - gombás csirkemell tésztával","c":41,"course":"főétel","prot":"csirke","meth":"","season":"spring","idx":1.11,"pm":5},{"n":"zellerkrémleves","c":41,"course":"leves","prot":"","meth":"","season":"winter","idx":0.55,"pm":1},{"n":"csülökpörkölt tarhonyával","c":40,"course":"főétel","prot":"sertés","meth":"pörkölt","season":"spring","idx":0.25,"pm":4},{"n":"lencsegulyás","c":40,"course":"leves","prot":"marha","meth":"","season":"spring","idx":0.39,"pm":4},{"n":"gombaleves","c":39,"course":"leves","prot":"vegetáriánus","meth":"","season":"spring","idx":0.49,"pm":4},{"n":"túrós palacsinta","c":39,"course":"desszert","prot":"vegetáriánus","meth":"","season":"winter","idx":0.22,"pm":1},{"n":"nyírségi gombócleves","c":38,"course":"leves","prot":"","meth":"","season":"winter","idx":0.49,"pm":12},{"n":"fokhagyma krémleves","c":37,"course":"leves","prot":"","meth":"","season":"winter","idx":0.65,"pm":2},{"n":"kofapecsenye tarhonyával","c":37,"course":"főétel","prot":"","meth":"","season":"spring","idx":0.65,"pm":3},{"n":"körömpörkölt, sósburgonyával","c":37,"course":"főétel","prot":"","meth":"pörkölt","season":"summer","idx":0.66,"pm":7},{"n":"marhapörkölt tarhonyával, saláta","c":36,"course":"főétel","prot":"marha","meth":"pörkölt","season":"spring","idx":0.33,"pm":3},{"n":"grízes tészta","c":33,"course":"főétel","prot":"","meth":"","season":"winter","idx":0.37,"pm":1},{"n":"krémes karfiolleves","c":33,"course":"leves","prot":"vegetáriánus","meth":"","season":"winter","idx":0.3,"pm":2},{"n":"pacalpörkölt, sósburgonya","c":33,"course":"főétel","prot":"","meth":"pörkölt","season":"winter","idx":0.84,"pm":2},{"n":"sajtos tészta","c":33,"course":"főétel","prot":"vegetáriánus","meth":"","season":"summer","idx":0.42,"pm":6},{"n":"sajtos vagy mákos nudli","c":33,"course":"főétel","prot":"vegetáriánus","meth":"","season":"","idx":null,"pm":null},{"n":"magyaros zöldborsóleves","c":31,"course":"leves","prot":"","meth":"","season":"winter","idx":0.49,"pm":12},{"n":"rizsleves","c":31,"course":"leves","prot":"","meth":"","season":"winter","idx":0.58,"pm":2},{"n":"körömpörkölt, főttburgonya","c":30,"course":"főétel","prot":"","meth":"főtt,pörkölt","season":"winter","idx":0.48,"pm":1},{"n":"sajtos - tejfölös tészta","c":30,"course":"főétel","prot":"vegetáriánus","meth":"","season":"summer","idx":1.3,"pm":8},{"n":"szilvaleves","c":30,"course":"leves","prot":"","meth":"","season":"summer","idx":0.64,"pm":8},{"n":"töltött paprika","c":30,"course":"főétel","prot":"","meth":"töltött","season":"summer","idx":0.89,"pm":7},{"n":"alföldi tésztaleves","c":29,"course":"leves","prot":"","meth":"","season":"winter","idx":0.49,"pm":2},{"n":"bakonyi betyárleves","c":28,"course":"leves","prot":"","meth":"","season":"winter","idx":0.53,"pm":2},{"n":"marhapörkölt galuskával","c":28,"course":"főétel","prot":"marha","meth":"pörkölt","season":"autumn","idx":0.83,"pm":10},{"n":"tejfölös burgonyaleves","c":28,"course":"leves","prot":"","meth":"","season":"spring","idx":0.81,"pm":4},{"n":"bácskai rizses hús","c":27,"course":"főétel","prot":"","meth":"","season":"autumn","idx":0.68,"pm":11},{"n":"húsgombócleves","c":27,"course":"leves","prot":"","meth":"","season":"spring","idx":0.7,"pm":4},{"n":"kakaspörkölt tésztával, saláta","c":27,"course":"főétel","prot":"","meth":"pörkölt","season":"summer","idx":0.6,"pm":8},{"n":"pacal, főttburgonya","c":27,"course":"főétel","prot":"","meth":"főtt","season":"autumn","idx":0.54,"pm":9},{"n":"prézlis tészta baracklekvárral","c":27,"course":"főétel","prot":"","meth":"","season":"spring","idx":0.58,"pm":4},{"n":"rakott krumpli","c":27,"course":"főétel","prot":"vegetáriánus","meth":"rakott","season":"spring","idx":0.58,"pm":3},{"n":"zöldborsós sertés tokány galuskával, saláta","c":27,"course":"főétel","prot":"sertés","meth":"","season":"winter","idx":0.75,"pm":2},{"n":"zúzapörkölt tarhonyával","c":27,"course":"főétel","prot":"","meth":"pörkölt","season":"winter","idx":0.65,"pm":2},{"n":"borsos tokány galuskával, saláta","c":26,"course":"főétel","prot":"","meth":"","season":"winter","idx":0.68,"pm":2},{"n":"burgonyagombóc leves","c":26,"course":"leves","prot":"","meth":"","season":"winter","idx":0.68,"pm":1},{"n":"bácskai rizseshús","c":26,"course":"főétel","prot":"","meth":"","season":"spring","idx":0.7,"pm":3},{"n":"bécsi szelet","c":26,"course":"leves","prot":"vegetáriánus","meth":"bécsi","season":"autumn","idx":0.83,"pm":11},{"n":"eperkrémleves","c":26,"course":"leves","prot":"","meth":"","season":"spring","idx":0.41,"pm":3},{"n":"ízes derelye","c":26,"course":"főétel","prot":"","meth":"","season":"winter","idx":0.46,"pm":1},{"n":"bakonyi betyár leves","c":25,"course":"leves","prot":"","meth":"","season":"winter","idx":0.65,"pm":2},{"n":"diós tészta","c":25,"course":"főétel","prot":"","meth":"","season":"spring","idx":0.41,"pm":3},{"n":"pulykapörkölt tésztával, saláta","c":25,"course":"főétel","prot":"csirke","meth":"pörkölt","season":"winter","idx":0.69,"pm":2},{"n":"párizsi sertés szelet, vegyes köret, saláta","c":25,"course":"főétel","prot":"sertés","meth":"párizsi","season":"spring","idx":1.04,"pm":3},{"n":"szaggatott tésztaleves","c":25,"course":"leves","prot":"","meth":"","season":"winter","idx":0.54,"pm":2},{"n":"tárkonyos sertés raguleves","c":25,"course":"leves","prot":"sertés","meth":"","season":"winter","idx":0.6,"pm":1},{"n":"zöldborsó leves","c":25,"course":"leves","prot":"","meth":"","season":"winter","idx":0.62,"pm":1},{"n":"gyümölcsfőzelék, párizsi csirkemell","c":24,"course":"főzelék","prot":"csirke","meth":"párizsi","season":"","idx":null,"pm":null},{"n":"mákos guba","c":24,"course":"főétel","prot":"","meth":"","season":"autumn","idx":0.61,"pm":11},{"n":"húsos leves b,c másodikkal","c":23,"course":"leves","prot":"","meth":"","season":"","idx":null,"pm":null},{"n":"magyaros gombaleves","c":23,"course":"leves","prot":"vegetáriánus","meth":"","season":"autumn","idx":0.45,"pm":9},{"n":"rakott burgonya, saláta","c":23,"course":"főétel","prot":"","meth":"rakott","season":"winter","idx":0.75,"pm":1},{"n":"sütőtök krémleves","c":23,"course":"leves","prot":"vegetáriánus","meth":"","season":"autumn","idx":1.11,"pm":11},{"n":"vaníliás palacsinta","c":23,"course":"desszert","prot":"","meth":"","season":"winter","idx":0.4,"pm":12},{"n":"birkapörkölt, sósburgonya","c":22,"course":"főétel","prot":"","meth":"pörkölt","season":"spring","idx":0.88,"pm":4},{"n":"csirkemáj rizottó","c":22,"course":"főétel","prot":"csirke","meth":"","season":"winter","idx":0.62,"pm":2},{"n":"pecsenye leves","c":22,"course":"leves","prot":"","meth":"","season":"summer","idx":0.58,"pm":7},{"n":"pármai rakott tészta","c":22,"course":"főétel","prot":"","meth":"rakott","season":"winter","idx":0.54,"pm":1},{"n":"rakott kel","c":22,"course":"főétel","prot":"","meth":"rakott","season":"winter","idx":0.4,"pm":1},{"n":"resztelt máj, főttburgonya","c":22,"course":"főétel","prot":"","meth":"főtt","season":"winter","idx":0.53,"pm":1},{"n":"csikós tokány galuskával, saláta","c":21,"course":"főétel","prot":"","meth":"","season":"winter","idx":0.91,"pm":2},{"n":"csirkebecsinált leves","c":21,"course":"leves","prot":"csirke","meth":"","season":"spring","idx":0.74,"pm":3},{"n":"csülök \"pékné\" módra, hagymás burgonya","c":21,"course":"főétel","prot":"sertés","meth":"","season":"summer","idx":0.67,"pm":8},{"n":"gölődin leves","c":21,"course":"leves","prot":"","meth":"","season":"spring","idx":0.66,"pm":3},{"n":"gölődinleves","c":21,"course":"leves","prot":"","meth":"","season":"autumn","idx":0.74,"pm":11},{"n":"leves + garnélás - tejszínes spagetti","c":21,"course":"leves","prot":"","meth":"","season":"","idx":null,"pm":null},{"n":"marhagulyás + barackos - túrós palacsinta","c":21,"course":"desszert","prot":"marha","meth":"","season":"","idx":null,"pm":null},{"n":"marhapörkölt tarhonyával","c":21,"course":"főétel","prot":"marha","meth":"pörkölt","season":"winter","idx":0.34,"pm":1},{"n":"meggyfőzelék, párizsi csirke","c":21,"course":"főzelék","prot":"csirke","meth":"párizsi","season":"","idx":null,"pm":null},{"n":"palócleves","c":21,"course":"leves","prot":"","meth":"","season":"winter","idx":0.7,"pm":2},{"n":"paradicsomos káposzta, sült hús","c":21,"course":"főétel","prot":"","meth":"sült","season":"autumn","idx":0.64,"pm":11},{"n":"raguleves","c":21,"course":"leves","prot":"","meth":"","season":"winter","idx":0.58,"pm":12},{"n":"rántott sertésszelet, vegyes köret, saláta","c":21,"course":"főétel","prot":"sertés","meth":"rántott","season":"autumn","idx":1.05,"pm":9},{"n":"szemes bableves","c":21,"course":"leves","prot":"","meth":"","season":"spring","idx":1.02,"pm":3},{"n":"zöldséges - húsos rakott tészta","c":21,"course":"főétel","prot":"vegetáriánus","meth":"rakott","season":"spring","idx":0.82,"pm":3},{"n":"zúzapörkölt tarhonyával, saláta","c":21,"course":"főétel","prot":"","meth":"pörkölt","season":"summer","idx":0.7,"pm":7},{"n":"burgonyafőzelék vagdalttal","c":20,"course":"főzelék","prot":"","meth":"","season":"summer","idx":1.11,"pm":8},{"n":"falusi csirkeleves","c":20,"course":"leves","prot":"csirke","meth":"","season":"winter","idx":0.71,"pm":2},{"n":"kecskeméti aprópecsenye, tészta","c":20,"course":"főétel","prot":"","meth":"","season":"spring","idx":0.57,"pm":3},{"n":"lencsekrém leves","c":20,"course":"leves","prot":"vegetáriánus","meth":"","season":"winter","idx":0.96,"pm":2},{"n":"leves + éhes gumis kedvence","c":20,"course":"leves","prot":"","meth":"","season":"","idx":null,"pm":null},{"n":"mákos nudli","c":20,"course":"főétel","prot":"","meth":"","season":"spring","idx":0.54,"pm":5},{"n":"sárgaborsó leves","c":20,"course":"leves","prot":"","meth":"","season":"spring","idx":0.45,"pm":5},{"n":"bakonyi szelet galuskával","c":19,"course":"főétel","prot":"","meth":"","season":"summer","idx":0.54,"pm":6},{"n":"csőben sült ananászos csirkemell, rizs","c":19,"course":"főétel","prot":"csirke","meth":"sült","season":"winter","idx":0.96,"pm":1},{"n":"fokhagyma krémleves, zsemlekocka","c":19,"course":"leves","prot":"","meth":"","season":"spring","idx":0.64,"pm":3},{"n":"mákos vagy diós tészta","c":19,"course":"főétel","prot":"","meth":"","season":"winter","idx":1.6,"pm":12},{"n":"rántott camambert, krokett, áfonya, barack","c":19,"course":"főétel","prot":"","meth":"rántott","season":"winter","idx":0.48,"pm":2},{"n":"savanyú burgonyaleves","c":19,"course":"leves","prot":"","meth":"","season":"spring","idx":0.79,"pm":3},{"n":"szárnyas raguleves","c":19,"course":"leves","prot":"csirke","meth":"","season":"spring","idx":0.75,"pm":4},{"n":"sárgaborsó főzelék, borsos tokány","c":19,"course":"főzelék","prot":"","meth":"","season":"winter","idx":0.66,"pm":1},{"n":"tejfölös bableves","c":19,"course":"leves","prot":"","meth":"","season":"spring","idx":0.7,"pm":3},{"n":"tejfölös zöldbableves","c":19,"course":"leves","prot":"","meth":"","season":"winter","idx":0.83,"pm":2},{"n":"babgulyás - palócgulyás","c":18,"course":"leves","prot":"marha","meth":"","season":"","idx":null,"pm":null},{"n":"gombaleves, csipetkével","c":18,"course":"leves","prot":"vegetáriánus","meth":"","season":"","idx":null,"pm":null},{"n":"görög rakott burgonya","c":18,"course":"főétel","prot":"","meth":"rakott","season":"spring","idx":0.69,"pm":3},{"n":"körömpörkölt, sós burgonya, saláta","c":18,"course":"főétel","prot":"","meth":"pörkölt","season":"spring","idx":1.0,"pm":5},{"n":"meggyfőzelék, párizsi csirkemell","c":18,"course":"főzelék","prot":"csirke","meth":"párizsi","season":"","idx":null,"pm":null},{"n":"paradicsomos káposzta vagdalttal","c":18,"course":"főétel","prot":"","meth":"","season":"winter","idx":0.88,"pm":1},{"n":"ínyenc batyu, rizs","c":18,"course":"főétel","prot":"","meth":"","season":"autumn","idx":1.82,"pm":11},{"n":"babgulyás - legényfogó leves","c":17,"course":"leves","prot":"marha","meth":"","season":"","idx":null,"pm":null},{"n":"bakonyi sertésszelet galuskával","c":17,"course":"főétel","prot":"sertés","meth":"","season":"summer","idx":0.7,"pm":6},{"n":"becsinált leves","c":17,"course":"leves","prot":"","meth":"","season":"spring","idx":1.2,"pm":3},{"n":"bácskai rizses hús, saláta","c":17,"course":"főétel","prot":"","meth":"","season":"winter","idx":1.02,"pm":2},{"n":"csirkeragu leves","c":17,"course":"leves","prot":"csirke","meth":"","season":"summer","idx":0.93,"pm":7},{"n":"csorbaleves","c":17,"course":"leves","prot":"","meth":"","season":"autumn","idx":0.83,"pm":10},{"n":"csőben sült túrós palacsinta","c":17,"course":"desszert","prot":"vegetáriánus","meth":"sült","season":"spring","idx":0.77,"pm":3},{"n":"krémes palacsinta","c":17,"course":"desszert","prot":"","meth":"","season":"winter","idx":0.67,"pm":1},{"n":"magyaros rizsleves","c":17,"course":"leves","prot":"","meth":"","season":"winter","idx":1.24,"pm":1},{"n":"milánói sertéskaraj","c":17,"course":"főétel","prot":"sertés","meth":"milánói","season":"winter","idx":1.74,"pm":2},{"n":"palóc gulyás","c":17,"course":"főétel","prot":"marha","meth":"","season":"winter","idx":0.73,"pm":1},{"n":"rác csirkecomb, karikás burgonya","c":17,"course":"főétel","prot":"csirke","meth":"","season":"autumn","idx":0.97,"pm":11},{"n":"sobri szelet, rizzsel","c":17,"course":"főétel","prot":"","meth":"","season":"winter","idx":0.59,"pm":2},{"n":"sárgaborsó főzelék pörkölttel","c":17,"course":"főzelék","prot":"","meth":"pörkölt","season":"summer","idx":0.98,"pm":6},{"n":"tárkonyos sertésragu leves","c":17,"course":"leves","prot":"sertés","meth":"","season":"autumn","idx":0.84,"pm":9},{"n":"zöldborsófőzelék, göngyölt hússal","c":17,"course":"főzelék","prot":"","meth":"","season":"autumn","idx":1.0,"pm":11},{"n":"babgulyás - frankfurti leves","c":16,"course":"leves","prot":"marha","meth":"","season":"spring","idx":0.66,"pm":5},{"n":"eperleves","c":16,"course":"leves","prot":"","meth":"","season":"winter","idx":0.56,"pm":1},{"n":"májgombóc leves","c":16,"course":"leves","prot":"","meth":"","season":"spring","idx":0.59,"pm":3},{"n":"tavaszi leves","c":16,"course":"leves","prot":"","meth":"","season":"spring","idx":0.88,"pm":5},{"n":"almaszósz, párizsi szelettel","c":15,"course":"főétel","prot":"","meth":"párizsi","season":"","idx":null,"pm":null},{"n":"babgulyás - pecsenyeleves","c":15,"course":"leves","prot":"marha","meth":"","season":"","idx":null,"pm":null},{"n":"csülökpörkölt tésztával","c":15,"course":"főétel","prot":"sertés","meth":"pörkölt","season":"winter","idx":1.09,"pm":12},{"n":"csőben sült brokkoli, vasalt csirkecombbal","c":15,"course":"főétel","prot":"csirke","meth":"sült","season":"summer","idx":0.91,"pm":8},{"n":"hagymakrém leves","c":15,"course":"leves","prot":"","meth":"","season":"spring","idx":0.58,"pm":5},{"n":"karalábéleves","c":15,"course":"leves","prot":"","meth":"","season":"autumn","idx":0.74,"pm":11},{"n":"karfiol leves","c":15,"course":"leves","prot":"vegetáriánus","meth":"","season":"spring","idx":1.25,"pm":3},{"n":"kemencés libacomb vagy kacsacomb krokettel, fahéjas sült almával","c":15,"course":"főétel","prot":"","meth":"sült","season":"autumn","idx":2.51,"pm":9},{"n":"magyaros zöldbableves","c":15,"course":"leves","prot":"","meth":"","season":"winter","idx":1.23,"pm":2},{"n":"magyaros zöldborsóleves, csipetkével","c":15,"course":"leves","prot":"","meth":"","season":"autumn","idx":0.66,"pm":11},{"n":"rakott karfiol, greslivel","c":15,"course":"főétel","prot":"vegetáriánus","meth":"rakott","season":"winter","idx":0.98,"pm":1},{"n":"túróval töltött zsemle","c":15,"course":"főétel","prot":"vegetáriánus","meth":"töltött","season":"summer","idx":0.74,"pm":7},{"n":"babgulyás + tiramisu","c":14,"course":"leves","prot":"marha","meth":"","season":"","idx":null,"pm":null},{"n":"bakonyi sertés szelet tésztával","c":14,"course":"főétel","prot":"sertés","meth":"","season":"winter","idx":1.23,"pm":2},{"n":"birkapörkölt, sós burgonya, saláta","c":14,"course":"főétel","prot":"","meth":"pörkölt","season":"winter","idx":0.84,"pm":1},{"n":"borjúpörkölt tésztával","c":14,"course":"főétel","prot":"marha","meth":"pörkölt","season":"autumn","idx":0.98,"pm":9},{"n":"burgonyás tészta","c":14,"course":"főétel","prot":"","meth":"","season":"autumn","idx":0.84,"pm":10},{"n":"csirkepaprikás galuskával","c":14,"course":"főétel","prot":"csirke","meth":"","season":"winter","idx":0.94,"pm":1},{"n":"csopaki aprópecsenye tésztával","c":14,"course":"főétel","prot":"","meth":"","season":"winter","idx":0.82,"pm":1},{"n":"debreceni szelet, kagylótésztával","c":14,"course":"főétel","prot":"","meth":"","season":"spring","idx":0.7,"pm":5},{"n":"leves + garnélás - tonhalas - tejszínes spagetti","c":14,"course":"leves","prot":"","meth":"","season":"","idx":null,"pm":null},{"n":"leves + mézpácos csirkemell, krokett, karamellizált gyümölcs","c":14,"course":"leves","prot":"csirke","meth":"","season":"","idx":null,"pm":null},{"n":"mustáros sertésapró, tészta","c":14,"course":"főétel","prot":"sertés","meth":"","season":"spring","idx":0.88,"pm":5},{"n":"rántott camembert, krokett, áfonya, barack","c":14,"course":"főétel","prot":"","meth":"rántott","season":"winter","idx":0.7,"pm":1},{"n":"szilvalekváros derelye","c":14,"course":"főétel","prot":"","meth":"","season":"autumn","idx":0.77,"pm":10},{"n":"tökfőzelék pörkölttel","c":14,"course":"főzelék","prot":"vegetáriánus","meth":"pörkölt","season":"summer","idx":0.8,"pm":8},{"n":"tökfőzelék vagdalttal","c":14,"course":"főzelék","prot":"vegetáriánus","meth":"","season":"winter","idx":1.25,"pm":2},{"n":"vargabéles","c":14,"course":"főétel","prot":"","meth":"","season":"autumn","idx":0.69,"pm":10},{"n":"édes - savanyú csirke, rizs","c":14,"course":"főétel","prot":"csirke","meth":"","season":"winter","idx":0.59,"pm":2},{"n":"édes - savanyú csirkemell bulgurral","c":14,"course":"főétel","prot":"csirke","meth":"","season":"winter","idx":1.08,"pm":2},{"n":"birkapörkölt, főttburgonya","c":13,"course":"főétel","prot":"","meth":"főtt,pörkölt","season":"spring","idx":0.82,"pm":4},{"n":"borsostokány tésztával","c":13,"course":"főétel","prot":"","meth":"","season":"winter","idx":1.16,"pm":1},{"n":"csőben sült brokkolis csirkemell, rizs","c":13,"course":"főétel","prot":"csirke","meth":"sült","season":"winter","idx":0.88,"pm":12},{"n":"falusi csirkeleves daragaluskával","c":13,"course":"leves","prot":"csirke","meth":"","season":"winter","idx":0.82,"pm":2},{"n":"finomfőzelék, sült csirkecomb, palacsinta","c":13,"course":"desszert","prot":"csirke","meth":"sült","season":"spring","idx":1.33,"pm":3},{"n":"gombapaprikás tésztával","c":13,"course":"főétel","prot":"vegetáriánus","meth":"","season":"spring","idx":0.59,"pm":3},{"n":"grízgombócleves","c":13,"course":"leves","prot":"","meth":"","season":"winter","idx":0.8,"pm":2},{"n":"hortobágyi húsos palacsinta","c":13,"course":"desszert","prot":"","meth":"","season":"winter","idx":1.0,"pm":1},{"n":"kelkáposzta főzelék pörkölttel","c":13,"course":"főzelék","prot":"","meth":"pörkölt","season":"spring","idx":1.13,"pm":3},{"n":"kelkáposzta főzelék, fokhagymás sertéssült","c":13,"course":"főzelék","prot":"sertés","meth":"sült","season":"spring","idx":1.33,"pm":3},{"n":"kertészleves","c":13,"course":"leves","prot":"","meth":"","season":"","idx":null,"pm":null},{"n":"korhely leves","c":13,"course":"leves","prot":"","meth":"","season":"summer","idx":0.71,"pm":7},{"n":"lecsós csirkemáj, rizzsel","c":13,"course":"főétel","prot":"csirke","meth":"","season":"","idx":null,"pm":null},{"n":"magvas rántott szelet, kukoricás rizs","c":13,"course":"főétel","prot":"","meth":"rántott","season":"winter","idx":2.04,"pm":2},{"n":"mexikói sertés tokány galuskával, saláta","c":13,"course":"főétel","prot":"sertés","meth":"","season":"winter","idx":1.43,"pm":1},{"n":"minestrone leves","c":13,"course":"leves","prot":"","meth":"","season":"summer","idx":0.88,"pm":8},{"n":"rizskók lekvárral","c":13,"course":"főétel","prot":"","meth":"","season":"winter","idx":0.71,"pm":1},{"n":"rántott halrúd, kukoricás rizs","c":13,"course":"főétel","prot":"","meth":"rántott","season":"winter","idx":1.9,"pm":12},{"n":"sertéskaraj \"otthon\" módra rizzsel","c":13,"course":"főétel","prot":"sertés","meth":"","season":"","idx":null,"pm":null},{"n":"szalagos fánk lekvárral","c":13,"course":"főétel","prot":"","meth":"","season":"winter","idx":1.16,"pm":2},{"n":"tojásos tészta","c":13,"course":"főétel","prot":"vegetáriánus","meth":"","season":"winter","idx":0.71,"pm":2},{"n":"zöldbabfőzelék, vagdalt","c":13,"course":"főzelék","prot":"","meth":"","season":"winter","idx":1.41,"pm":2},{"n":"zöldborsófőzelék, sült csirkecomb, palacsinta","c":13,"course":"desszert","prot":"csirke","meth":"sült","season":"spring","idx":1.43,"pm":3},{"n":"babgulyás - raguleves","c":12,"course":"leves","prot":"marha","meth":"","season":"","idx":null,"pm":null},{"n":"borsmártásos karaj, burgonya","c":12,"course":"főétel","prot":"sertés","meth":"","season":"winter","idx":2.24,"pm":2},{"n":"bácskai rizseshús, saláta","c":12,"course":"főétel","prot":"","meth":"","season":"summer","idx":1.08,"pm":8},{"n":"chilis bab, rizs","c":12,"course":"főétel","prot":"vegetáriánus","meth":"","season":"autumn","idx":0.91,"pm":9},{"n":"csirkepaprikás tésztával","c":12,"course":"főétel","prot":"csirke","meth":"","season":"winter","idx":1.22,"pm":2},{"n":"fokhagymás tokány, tészta","c":12,"course":"főétel","prot":"","meth":"","season":"winter","idx":0.82,"pm":1},{"n":"húsos tészta","c":12,"course":"főétel","prot":"","meth":"","season":"winter","idx":0.71,"pm":1},{"n":"káposztás kocka","c":12,"course":"főétel","prot":"","meth":"","season":"winter","idx":0.58,"pm":1},{"n":"lecsós sertés szelet, rizs","c":12,"course":"főétel","prot":"sertés","meth":"","season":"winter","idx":0.91,"pm":1},{"n":"marhapörkölt tésztával","c":12,"course":"főétel","prot":"marha","meth":"pörkölt","season":"summer","idx":0.7,"pm":8},{"n":"pankó morzsás rántott szelet, kukoricás rizs","c":12,"course":"főétel","prot":"","meth":"rántott","season":"winter","idx":2.24,"pm":1},{"n":"paradicsomos káposzta sült oldalassal","c":12,"course":"főétel","prot":"sertés","meth":"sült","season":"","idx":null,"pm":null},{"n":"piszkeszósz, párizsi szelet","c":12,"course":"főétel","prot":"","meth":"párizsi","season":"","idx":null,"pm":null},{"n":"pulled pork tál","c":12,"course":"főétel","prot":"","meth":"","season":"","idx":null,"pm":null},{"n":"párizsi csirkemell, almafőzelék","c":12,"course":"főzelék","prot":"csirke","meth":"párizsi","season":"","idx":null,"pm":null},{"n":"sajtburger 2190.","c":12,"course":"főétel","prot":"vegetáriánus","meth":"","season":"","idx":null,"pm":null},{"n":"szárnyas aprólék leves","c":12,"course":"leves","prot":"csirke","meth":"","season":"winter","idx":0.58,"pm":1},{"n":"székelykáposzta, palacsinta","c":12,"course":"desszert","prot":"","meth":"","season":"autumn","idx":1.16,"pm":11},{"n":"almafőzelék, párizsi csirke","c":11,"course":"főzelék","prot":"csirke","meth":"párizsi","season":"","idx":null,"pm":null},{"n":"babgulyás leves – tárkonyos sertés raguleves","c":11,"course":"leves","prot":"sertés,marha","meth":"","season":"","idx":null,"pm":null},{"n":"burgonyafőzelék, sült oldalas","c":11,"course":"főzelék","prot":"sertés","meth":"sült","season":"","idx":null,"pm":null},{"n":"carbonara penne","c":11,"course":"főétel","prot":"","meth":"","season":"summer","idx":0.83,"pm":6},{"n":"csk burger","c":11,"course":"főétel","prot":"","meth":"","season":"","idx":null,"pm":null},{"n":"halászlé","c":11,"course":"főétel","prot":"hal","meth":"","season":"","idx":null,"pm":null},{"n":"hamis gulyás","c":11,"course":"főétel","prot":"marha","meth":"","season":"autumn","idx":1.04,"pm":9},{"n":"hamis gulyás leves","c":11,"course":"leves","prot":"marha","meth":"","season":"winter","idx":1.04,"pm":1},{"n":"harcsapaprikás galuskával","c":11,"course":"főétel","prot":"hal","meth":"","season":"spring","idx":0.7,"pm":3},{"n":"húsgombóc paradicsommártással","c":11,"course":"desszert","prot":"","meth":"","season":"spring","idx":0.96,"pm":5},{"n":"kofapecsenye, tarhonya","c":11,"course":"főétel","prot":"","meth":"","season":"spring","idx":0.7,"pm":3},{"n":"lencse krémleves","c":11,"course":"leves","prot":"vegetáriánus","meth":"","season":"spring","idx":1.44,"pm":3},{"n":"meggyszósz, sült csirkecombbal","c":11,"course":"főétel","prot":"csirke","meth":"sült","season":"","idx":null,"pm":null},{"n":"pacalpörkölt sós burgonyával","c":11,"course":"főétel","prot":"","meth":"pörkölt","season":"spring","idx":0.83,"pm":3},{"n":"pincepörkölt, sósburgonya","c":11,"course":"főétel","prot":"","meth":"pörkölt","season":"","idx":null,"pm":null},{"n":"pontypaprikás kapros túrós csuszával","c":11,"course":"főétel","prot":"hal","meth":"","season":"winter","idx":1.22,"pm":1},{"n":"szecsuáni csirke sült tésztával","c":11,"course":"főétel","prot":"csirke","meth":"sült","season":"summer","idx":0.82,"pm":6},{"n":"tejbegríz","c":11,"course":"főétel","prot":"","meth":"","season":"winter","idx":0.83,"pm":2},{"n":"tejfölös karfiolleves","c":11,"course":"leves","prot":"vegetáriánus","meth":"","season":"spring","idx":1.75,"pm":3},{"n":"tárkonyos libaragu leves","c":11,"course":"leves","prot":"","meth":"","season":"","idx":null,"pm":null},{"n":"zeller krémleves","c":11,"course":"leves","prot":"","meth":"","season":"winter","idx":1.37,"pm":1},{"n":"almafőzelék, párizsi szelettel","c":10,"course":"főzelék","prot":"","meth":"párizsi","season":"","idx":null,"pm":null},{"n":"ananászos csirkemell, párolt rizs","c":10,"course":"főétel","prot":"csirke","meth":"párolt","season":"spring","idx":1.37,"pm":3},{"n":"b.u.é.k","c":10,"course":"főétel","prot":"","meth":"","season":"","idx":null,"pm":null},{"n":"bakonyi sertés tésztával","c":10,"course":"főétel","prot":"sertés","meth":"","season":"","idx":null,"pm":null},{"n":"bakonyi sertéskaraj galuskával","c":10,"course":"főétel","prot":"sertés","meth":"","season":"","idx":null,"pm":null},{"n":"budapest szelet, rizzsel","c":10,"course":"főétel","prot":"","meth":"","season":"","idx":null,"pm":null},{"n":"burgonya főzelék, stefánia vagdalt","c":10,"course":"főzelék","prot":"","meth":"","season":"","idx":null,"pm":null},{"n":"burgonya gombóc leves","c":10,"course":"leves","prot":"","meth":"","season":"summer","idx":0.82,"pm":8},{"n":"chilis bab tejföllel","c":10,"course":"főétel","prot":"vegetáriánus","meth":"","season":"spring","idx":0.66,"pm":3},{"n":"cordon bleu, steakburgonya","c":10,"course":"főétel","prot":"","meth":"","season":"","idx":null,"pm":null},{"n":"finomfőzelék, kolbásszal töltött karaj","c":10,"course":"főzelék","prot":"sertés","meth":"töltött","season":"winter","idx":1.08,"pm":2},{"n":"kalocsai harcsafilé, rizs","c":10,"course":"főétel","prot":"hal","meth":"","season":"spring","idx":0.96,"pm":5},{"n":"kelvirágleves","c":10,"course":"leves","prot":"","meth":"","season":"autumn","idx":1.61,"pm":11},{"n":"konyhakerti gulyás","c":10,"course":"főétel","prot":"marha","meth":"","season":"summer","idx":0.82,"pm":6},{"n":"körömpörkölt sós burgonyával","c":10,"course":"főétel","prot":"","meth":"pörkölt","season":"winter","idx":0.96,"pm":1},{"n":"lecsós tarja tarhonyával","c":10,"course":"főétel","prot":"sertés","meth":"","season":"","idx":null,"pm":null},{"n":"mustáros sertés, vajas spagetti","c":10,"course":"főétel","prot":"sertés","meth":"","season":"winter","idx":1.08,"pm":2},{"n":"paradicsomos húsgombóc, főtt burgonya","c":10,"course":"desszert","prot":"","meth":"főtt","season":"spring","idx":1.46,"pm":5},{"n":"rántott csirkeszárny, francia salátával","c":10,"course":"főétel","prot":"csirke","meth":"rántott","season":"","idx":null,"pm":null},{"n":"töltött paprika paradicsommártással","c":10,"course":"főétel","prot":"","meth":"töltött","season":"summer","idx":1.46,"pm":7},{"n":"vadas sertés java, zsemlegombóc, csőtészta","c":10,"course":"desszert","prot":"sertés","meth":"","season":"winter","idx":1.18,"pm":2},{"n":"vadas sertés szelet, tészta","c":10,"course":"főétel","prot":"sertés","meth":"","season":"","idx":null,"pm":null},{"n":"zöldborsó főzelék, sült csirkecomb","c":10,"course":"főzelék","prot":"csirke","meth":"sült","season":"summer","idx":1.18,"pm":8},{"n":"zöldborsófőzelék, sült csirkecomb","c":10,"course":"főzelék","prot":"csirke","meth":"sült","season":"winter","idx":1.08,"pm":12}];
+const CATS = {"total_dishes": 8258, "course_distribution": {"főétel": 5994, "leves": 1688, "főzelék": 388, "desszert": 188}, "protein_distribution": {"csirke": 2536, "sertés": 2218, "vegetáriánus": 833, "marha": 463, "hal": 306}, "cooking_method_distribution": {"rántott": 1400, "sült": 1109, "párolt": 503, "töltött": 491, "pörkölt": 357, "párizsi": 242, "grillezett": 232, "rakott": 149, "tepsis": 99, "pirított": 87, "fasírozott": 77, "főtt": 60, "milánói": 50, "bundás": 21, "bécsi": 14}};
+const TIERS = {"labels": ["Staples", "Regulars", "Occasional", "Long tail"], "ranges": ["≥200", "50–199", "10–49", "1–9"], "dishes": [20, 53, 248, 4726], "occ": [12751, 4663, 4798, 9277]};
+
+/* ---------- theme ---------- */
+const root=document.documentElement, tb=document.getElementById('themeBtn'), tl=document.getElementById('themeLab');
+tb.onclick=()=>{const d=root.getAttribute('data-theme')==='dark';root.setAttribute('data-theme',d?'light':'dark');tl.textContent=d?'Dark':'Light';};
+
+/* ---------- distribution charts ---------- */
+function tier(c){return c>=200?0:c>=50?1:c>=10?2:3;}
+function chart(el,obj){
+  const max=Math.max(...Object.values(obj));
+  const node=document.getElementById(el);
+  node.innerHTML=Object.entries(obj).map(([k,v])=>
+    `<div class="brow"><div class="bname" title="${k}">${k}</div>`+
+    `<div class="btrack"><div class="bfill" data-w="${(v/max*100).toFixed(1)}"></div></div>`+
+    `<div class="bval mono">${v.toLocaleString()}</div></div>`).join('');
+}
+chart('ch-course',CATS.course_distribution);
+chart('ch-protein',CATS.protein_distribution);
+chart('ch-method',CATS.cooking_method_distribution);
+
+/* ---------- hierarchy stack ---------- */
+(function(){
+  const totOcc=TIERS.occ.reduce((a,b)=>a+b,0);
+  document.getElementById('stack').innerHTML=TIERS.occ.map((o,i)=>{
+    const pct=o/totOcc*100;
+    return `<div class="seg s${i}" style="flex:${o}" title="${TIERS.labels[i]}: ${o.toLocaleString()} occ">`+
+           `${pct>7?'<span>'+Math.round(pct)+'%</span>':''}</div>`;}).join('');
+  document.getElementById('hlegend').innerHTML=TIERS.labels.map((l,i)=>
+    `<div class="hl"><div class="ht">${l}</div><div class="hr">${TIERS.ranges[i]} occurrences</div>`+
+    `<div class="hd"><b>${TIERS.dishes[i].toLocaleString()}</b> dishes · <b>${TIERS.occ[i].toLocaleString()}</b> occ</div></div>`).join('');
+})();
+
+/* ---------- explorer ---------- */
+const S={q:'',course:'all',season:'all',tier:'all',sort:'count',page:1};
+const PER=20;
+function resetRender(){S.page=1;render();}
+const COURSES=['főétel','leves','főzelék','desszert'];
+const SEASONS=[['winter','Winter'],['spring','Spring'],['summer','Summer'],['autumn','Autumn']];
+const SGLYPH={winter:'❄',spring:'✿',summer:'☀',autumn:'❧'};
+
+function chips(host,items,key){
+  const all=`<button class="chip" data-v="all" aria-pressed="true">All</button>`;
+  document.getElementById(host).innerHTML=all+items.map(it=>{
+    const [v,lab]=Array.isArray(it)?it:[it,it];
+    return `<button class="chip" data-v="${v}" aria-pressed="false">${lab}</button>`;}).join('');
+  document.getElementById(host).querySelectorAll('.chip').forEach(c=>{
+    c.onclick=()=>{S[key]=c.dataset.v;
+      c.parentNode.querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x===c));
+      resetRender();};});
+}
+chips('f-course',COURSES,'course');
+chips('f-season',SEASONS,'season');
+chips('f-tier',[['1','Staples'],['2','Regulars'],['3','Occasional']],'tier');
+document.getElementById('q').oninput=e=>{S.q=e.target.value.toLowerCase().trim();resetRender();};
+document.getElementById('sort').onchange=e=>{S.sort=e.target.value;resetRender();};
+
+function filtered(){
+  return DISHES.filter(d=>{
+    if(S.q && !d.n.includes(S.q)) return false;
+    if(S.course!=='all' && d.course!==S.course) return false;
+    if(S.season!=='all' && d.season!==S.season) return false;
+    if(S.tier!=='all' && String(tier(d.c)+1)!==S.tier) return false;
+    return true;
+  }).sort((a,b)=>{
+    if(S.sort==='name') return a.n.localeCompare(b.n);
+    if(S.sort==='idx') return (b.idx||0)-(a.idx||0);
+    return b.c-a.c;
+  });
+}
+function render(){
+  const list=filtered();
+  const total=list.length;
+  const pages=Math.max(1,Math.ceil(total/PER));
+  S.page=Math.min(Math.max(1,S.page),pages);
+  const max=Math.max(1,...list.map(d=>d.c));
+  const start=(S.page-1)*PER;
+  const page=list.slice(start,start+PER);
+  const rows=document.getElementById('rows');
+  rows.style.display=total?'block':'none';
+  document.getElementById('empty').style.display=total?'none':'block';
+  rows.innerHTML=page.map((d,i)=>{
+    const sc=d.season?`<div class="season ${d.season}"><b></b>${d.season[0].toUpperCase()+d.season.slice(1)}</div>`:`<div class="season" style="opacity:.4">—</div>`;
+    const ctag=d.course?`<div class="tag c-${d.course}">${d.course}</div>`:`<div class="tag empty">—</div>`;
+    return `<div class="drow"><div class="rk">${start+i+1}</div>`+
+      `<div class="dn"><div class="nm" title="${d.n}">${d.n}</div>`+
+      `<div class="dbar" style="width:${(d.c/max*100).toFixed(1)}%"></div></div>`+
+      ctag+sc+`<div class="dc">${d.c.toLocaleString()}</div></div>`;
+  }).join('');
+  document.getElementById('count').textContent=`${total} dish${total===1?'':'es'} match`;
+  const parts=[];
+  if(S.course!=='all')parts.push(S.course);
+  if(S.season!=='all')parts.push(S.season);
+  if(S.tier!=='all')parts.push('tier '+S.tier);
+  document.getElementById('active').textContent=parts.length?'▸ '+parts.join(' · '):'';
+  // pager
+  const pg=document.getElementById('pager');
+  if(pages<=1){pg.innerHTML='';return;}
+  pg.innerHTML=`<button id="prev"${S.page<=1?' disabled':''}>‹ Prev</button>`+
+    `<span class="pinfo">${total?start+1:0}–${start+page.length} of ${total}</span>`+
+    `<button id="next"${S.page>=pages?' disabled':''}>Next ›</button>`;
+  const pv=document.getElementById('prev'),nx=document.getElementById('next');
+  if(pv)pv.onclick=()=>{S.page--;render();};
+  if(nx)nx.onclick=()=>{S.page++;render();};
+}
+
+/* ---------- seasonal cards ---------- */
+(function(){
+  const host=document.getElementById('seasons');
+  const monthName={winter:'Dec – Feb',spring:'Mar – May',summer:'Jun – Aug',autumn:'Sep – Nov'};
+  host.innerHTML=SEASONS.map(([k,lab])=>{
+    const top=DISHES.filter(d=>d.season===k && d.c>=50 && d.idx!=null)
+      .sort((a,b)=>b.idx-a.idx).slice(0,5);
+    const li=top.map(d=>`<li><span class="sn" title="${d.n}">${d.n}</span><span class="si">${d.idx.toFixed(2)}</span></li>`).join('');
+    return `<div class="scard" data-season="${k}"><h4><span class="glyph">${SGLYPH[k]}</span>${lab}</h4>`+
+      `<div class="mo">peak ${monthName[k]}</div><ol>${li}</ol>`+
+      `<div class="cta">filter explorer ↑</div></div>`;
+  }).join('');
+  host.querySelectorAll('.scard').forEach(c=>c.onclick=()=>{
+    S.season=c.dataset.season;
+    document.querySelectorAll('#f-season .chip').forEach(x=>x.setAttribute('aria-pressed',x.dataset.v===S.season));
+    resetRender();
+    document.getElementById('explore').scrollIntoView({behavior:'smooth'});
+  });
+})();
+
+/* ---------- pipeline ---------- */
+(function(){
+  const steps=[
+    ['1','Scrape','<code>hol_menuzzek.py</code> → 1_html/ (weekly)'],
+    ['2','HTML → text','<code>html_to_text.sh</code> → 2_txt/'],
+    ['3','Extract','<code>menu_extractor.py</code> → daily_menus.csv'],
+    ['4','Clean','<code>clean_dishes.py</code> → cleaned_dishes.csv'],
+    ['5','Lemmatize','HuSpaCy → dishes_with_lemmas.csv'],
+    ['6','Categorize','<code>categorize_dishes.py</code> → course/protein/method'],
+    ['7','Resolve','<code>resolve_synonyms.py</code> → dishes_resolved.csv'],
+    ['8','Seasonal','<code>seasonal_analysis.py</code> → monthly + summary'],
+  ];
+  document.getElementById('pipe').innerHTML=steps.map(s=>
+    `<div class="pstep"><span class="pi">${s[0]}</span><div><b>${s[1]}</b> &nbsp;${s[2]}</div></div>`).join('');
+})();
+
+/* ---------- chapter navigator scroll-sync ---------- */
+(function(){
+  const links=[...document.querySelectorAll('.chapnav a')];
+  const map={};links.forEach(a=>map[a.dataset.t]=a);
+  const io=new IntersectionObserver(es=>{
+    es.forEach(e=>{if(e.isIntersecting){
+      links.forEach(a=>a.classList.toggle('active',a===map[e.target.id]));
+    }});
+  },{rootMargin:'-45% 0px -50% 0px',threshold:0});
+  links.forEach(a=>{const s=document.getElementById(a.dataset.t);if(s)io.observe(s);});
+})();
+
+/* ---------- animate bars in ---------- */
+render();
+requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  document.querySelectorAll('.bfill').forEach(b=>b.style.width=b.dataset.w+'%');
+}));
+</script>
+</body>
+</html>

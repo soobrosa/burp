@@ -2,6 +2,8 @@
 
 A corpus of Hungarian business-lunch menus from Kiskunfélegyháza, with a pipeline that turns scraped HTML into cleaned, lemmatized, categorized, and seasonally-analyzed dish data.
 
+**[→ Explore the interactive visualization](https://soobrosa.github.io/burp/)** — a monochrome, searchable dashboard of the corpus (`index.html`).
+
 ## Pipeline
 
 1. **Scrape** — `0_code/hol_menuzzek.py` collects daily menu HTML into `1_html/`. Runs weekly via GitHub Actions.
